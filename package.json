@@ -7,7 +7,8 @@
     "start": "live-server --port=3000 --open=/index.html",
     "dev": "live-server --port=3000 --open=/index.html --watch=.",
     "serve": "http-server -p 3000 -o",
-    "build": "echo 'Site statique - pas de build nécessaire'"
+    "build": "echo 'Build terminé - Site statique prêt pour déploiement'",
+    "vercel-build": "echo 'Build Vercel - Site statique'"
   },
   "keywords": [
     "deneigement",
