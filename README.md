@@ -49,6 +49,34 @@ npm install
 ```bash
 npm start
 ```
+
+## 🌐 Déploiement sur Vercel
+
+### Configuration
+Le site est configuré pour être déployé sur Vercel avec le domaine **deneigementnordique.com**.
+
+### Étapes de déploiement
+
+1. **Connecter le dépôt GitHub à Vercel**
+   - Allez sur [vercel.com](https://vercel.com)
+   - Importez le dépôt `maximegiguere1one/deneigementnordique`
+   - Vercel détectera automatiquement la configuration dans `vercel.json`
+
+2. **Configurer le domaine personnalisé**
+   - Dans les paramètres du projet Vercel, allez dans "Domains"
+   - Ajoutez `deneigementnordique.com`
+   - Suivez les instructions pour configurer les DNS
+
+3. **Déploiement automatique**
+   - Chaque push sur la branche `main` déclenchera un déploiement automatique
+   - Les déploiements sont instantanés grâce à la configuration statique
+
+### Configuration Vercel
+Le fichier `vercel.json` inclut :
+- Configuration pour site statique
+- Headers de sécurité
+- Cache optimisé pour les assets (images, CSS, JS)
+- Routes et rewrites configurés
 ou
 ```bash
 npm run dev
