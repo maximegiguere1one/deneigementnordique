@@ -4,9 +4,9 @@
   "description": "Site web pour Déneigement Nordique Expert",
   "main": "index.html",
   "scripts": {
-    "start": "live-server --port=3000 --open=/index.html",
-    "dev": "live-server --port=3000 --open=/index.html --watch=.",
-    "serve": "http-server -p 3000 -o",
+    "start": "live-server --port=3001 --open=/index.html",
+    "dev": "live-server --port=3001 --open=/index.html --watch=.",
+    "serve": "http-server -p 3001 -o",
     "build": "echo 'Build terminé - Site statique prêt pour déploiement'",
     "vercel-build": "echo 'Build Vercel - Site statique'"
   },
