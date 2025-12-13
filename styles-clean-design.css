@@ -1,0 +1,591 @@
+/* ============================================
+   CLEAN DESIGN SYSTEM - 10X MORE CLEAN
+   Expert Design Analysis & Refinement
+   ============================================ */
+
+/* ============================================
+   NAVIGATION - ULTRA CLEAN
+   ============================================ */
+
+.premium-navbar {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(31, 58, 86, 0.06) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset,
+                0 2px 16px rgba(31, 58, 86, 0.04) !important;
+    height: 72px !important;
+}
+
+.premium-navbar.scrolled {
+    background: rgba(255, 255, 255, 0.99) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.95) inset,
+                0 4px 24px rgba(31, 58, 86, 0.08) !important;
+}
+
+.nav-container {
+    height: 72px !important;
+    padding: 0 2.5rem !important;
+    gap: 3rem !important;
+}
+
+/* Logo - More Minimal */
+.nav-logo-img {
+    height: 42px !important;
+    filter: none !important;
+}
+
+.nav-logo-text {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.015em !important;
+}
+
+.nav-logo-link:hover {
+    transform: none !important;
+}
+
+/* Navigation Links - Ultra Clean (No Icons) */
+.nav-menu-desktop {
+    flex: 0 1 auto !important;
+}
+
+.nav-menu-list {
+    gap: 0.25rem !important;
+}
+
+.nav-menu-link {
+    padding: 0.5rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    border-radius: 8px !important;
+    gap: 0 !important;
+}
+
+/* Hide icons for cleaner look */
+.nav-link-icon {
+    display: none !important;
+}
+
+.nav-link-text {
+    position: relative;
+}
+
+.nav-menu-link::before {
+    display: none !important;
+}
+
+.nav-menu-link:hover {
+    background: rgba(31, 122, 77, 0.06) !important;
+    color: var(--color-secondary) !important;
+    transform: none !important;
+}
+
+.nav-menu-link.active {
+    background: rgba(31, 122, 77, 0.08) !important;
+    color: var(--color-secondary) !important;
+}
+
+.nav-menu-link.active::after {
+    display: none !important;
+}
+
+/* Contact Info - Cleaner */
+.nav-contact-info {
+    gap: 1rem !important;
+}
+
+.nav-phone-link {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    background: rgba(31, 58, 86, 0.03) !important;
+    border-radius: 8px !important;
+}
+
+.nav-phone-link:hover {
+    background: rgba(31, 58, 86, 0.06) !important;
+    transform: none !important;
+}
+
+.nav-phone-link svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Badge 24/7 - More Subtle */
+.nav-urgent-badge {
+    padding: 0.375rem 0.875rem !important;
+    background: rgba(31, 122, 77, 0.08) !important;
+    border: 1px solid rgba(31, 122, 77, 0.15) !important;
+    border-radius: 12px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+}
+
+.urgent-dot {
+    width: 6px !important;
+    height: 6px !important;
+    box-shadow: 0 0 6px rgba(31, 122, 77, 0.4) !important;
+}
+
+/* CTA Button - Cleaner */
+.nav-cta-button {
+    padding: 0.625rem 1.5rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(31, 122, 77, 0.2) !important;
+    letter-spacing: -0.01em !important;
+}
+
+.nav-cta-button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(31, 122, 77, 0.3) !important;
+}
+
+.nav-cta-button::before {
+    display: none !important;
+}
+
+.nav-cta-button svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ============================================
+   HERO SECTION - ULTRA CLEAN
+   ============================================ */
+
+/* Hero starts immediately after navbar - no gray band */
+.hero-fixflow {
+    min-height: calc(100vh - 72px) !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    top: 72px !important;
+    margin-top: -72px !important;
+}
+
+/* Ensure hero background covers full area */
+.hero-fixflow .hero-background-image {
+    top: 0 !important;
+    height: 100% !important;
+}
+
+.hero-fixflow .hero-overlay-fixflow {
+    top: 0 !important;
+    height: 100% !important;
+}
+
+/* Ensure hero starts right after navbar - no gray band */
+body {
+    padding-top: 0 !important;
+}
+
+/* Override body background gradient to start after navbar */
+body::before {
+    top: 72px !important;
+    height: calc(300vh - 72px) !important;
+}
+
+.hero-background-image {
+    filter: brightness(0.4) contrast(1.1) !important;
+}
+
+.hero-overlay-fixflow {
+    background: linear-gradient(135deg, 
+        rgba(31, 58, 86, 0.75) 0%, 
+        rgba(31, 58, 86, 0.65) 50%,
+        rgba(31, 58, 86, 0.55) 100%
+    ) !important;
+    backdrop-filter: blur(0.5px) !important;
+}
+
+.hero-content-fixflow {
+    gap: 5rem !important;
+    padding: 6rem 0 4rem !important;
+    align-items: center !important;
+}
+
+/* Hero Left - Better Typography */
+.hero-left {
+    max-width: 640px !important;
+}
+
+.hero-badge {
+    padding: 0.5rem 1.125rem !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    margin-bottom: 2rem !important;
+    background: var(--color-secondary) !important;
+    box-shadow: 0 2px 8px rgba(31, 122, 77, 0.25) !important;
+}
+
+.hero-title-fixflow {
+    font-size: clamp(2.75rem, 6vw, 4.5rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 1.75rem !important;
+    color: var(--color-white) !important;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-text-fixflow {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem) !important;
+    line-height: 1.75 !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    margin-bottom: 2.5rem !important;
+    max-width: 580px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Hero CTA - Cleaner Buttons */
+.hero-cta-fixflow {
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+}
+
+.btn-hero-primary {
+    padding: 1.125rem 2.25rem !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    box-shadow: 0 4px 16px rgba(31, 122, 77, 0.35),
+                0 2px 4px rgba(31, 122, 77, 0.2) !important;
+    background: var(--color-secondary) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(31, 122, 77, 0.4),
+                0 4px 8px rgba(31, 122, 77, 0.25) !important;
+    background: #1a6b3f !important;
+}
+
+.btn-hero-secondary {
+    padding: 1.125rem 2.25rem !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Hero Right - Better Image Treatment */
+.hero-right {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4),
+                0 8px 16px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image-wrapper:hover {
+    transform: translateY(-4px);
+}
+
+.hero-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Hero Reviews - Perfect Display Above CTA Buttons */
+.hero-reviews {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    padding: 0.875rem 1.5rem !important;
+    border-radius: 50px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    z-index: 2 !important;
+    max-width: fit-content !important;
+    white-space: nowrap !important;
+    min-width: fit-content !important;
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+}
+
+@media (max-width: 968px) {
+    .hero-reviews {
+        padding: 0.75rem 1.25rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+.hero-reviews-avatars {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    position: relative !important;
+}
+
+.hero-avatar {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: 3px solid var(--color-white) !important;
+    margin-left: -8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+    background: var(--color-white) !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.3s ease, z-index 0.3s ease !important;
+}
+
+.hero-avatar:first-child {
+    margin-left: 0 !important;
+    z-index: 3 !important;
+}
+
+.hero-avatar:nth-child(2) {
+    z-index: 2 !important;
+}
+
+.hero-avatar:nth-child(3) {
+    z-index: 1 !important;
+}
+
+.hero-avatar:hover {
+    transform: scale(1.1) !important;
+    z-index: 10 !important;
+}
+
+.avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+.hero-reviews-text {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    flex-wrap: wrap !important;
+}
+
+.hero-reviews-number {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    color: var(--color-primary) !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1 !important;
+}
+
+.hero-reviews-label {
+    font-size: 0.875rem !important;
+    color: var(--color-text-light) !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+}
+
+.hero-reviews-check {
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--color-secondary) !important;
+    flex-shrink: 0 !important;
+    margin-left: 0.25rem !important;
+}
+
+.hero-reviews-number {
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    color: var(--color-primary) !important;
+    letter-spacing: -0.01em !important;
+}
+
+.hero-reviews-label {
+    font-size: 0.85rem !important;
+    color: var(--color-text-light) !important;
+    font-weight: 500 !important;
+}
+
+.hero-reviews-check {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ============================================
+   RESPONSIVE CLEAN DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .nav-logo-text {
+        display: none !important;
+    }
+    
+    .hero-content-fixflow {
+        gap: 3rem !important;
+    }
+}
+
+@media (max-width: 968px) {
+    .nav-container {
+        padding: 0 1.5rem !important;
+        gap: 1.5rem !important;
+    }
+    
+    .nav-urgent-badge {
+        display: none !important;
+    }
+    
+    .nav-cta-button span {
+        display: none !important;
+    }
+    
+    .nav-cta-button {
+        padding: 0.625rem !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .hero-content-fixflow {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        padding: 4rem 0 3rem !important;
+    }
+    
+    .hero-right {
+        order: -1 !important;
+    }
+    
+    .hero-image-wrapper {
+        max-width: 100% !important;
+    }
+    
+    .hero-reviews {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-reviews-text {
+        margin-left: 0.5rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title-fixflow {
+        font-size: 2.25rem !important;
+    }
+    
+    .hero-text-fixflow {
+        font-size: 1rem !important;
+    }
+    
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        padding: 1rem 1.75rem !important;
+        font-size: 0.95rem !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .hero-cta-fixflow {
+        flex-direction: column !important;
+    }
+}
+
+/* ============================================
+   SPACING REFINEMENTS
+   ============================================ */
+
+/* Remove excessive spacing */
+.hero-left > * + * {
+    margin-top: 0;
+}
+
+/* Better visual hierarchy */
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1.75rem;
+}
+
+.hero-title-fixflow {
+    margin-bottom: 1.5rem;
+}
+
+.hero-text-fixflow {
+    margin-bottom: 2.25rem;
+}
+
+/* ============================================
+   MICRO-INTERACTIONS
+   ============================================ */
+
+/* Subtle hover effects */
+.nav-menu-link,
+.nav-phone-link,
+.nav-cta-button,
+.btn-hero-primary,
+.btn-hero-secondary {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Focus states for accessibility */
+.nav-menu-link:focus,
+.nav-phone-link:focus,
+.nav-cta-button:focus,
+.btn-hero-primary:focus,
+.btn-hero-secondary:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* Body Padding Adjustment */
+body {
+    padding-top: 72px !important;
+}
+
+/* Smooth Scroll Offset */
+html {
+    scroll-padding-top: 90px !important;
+}
+

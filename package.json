@@ -1,0 +1,24 @@
+{
+  "name": "deneigement-nordique-expert",
+  "version": "1.0.0",
+  "description": "Site web pour Déneigement Nordique Expert",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "dev": "live-server --port=3000 --open=/index.html --watch=.",
+    "serve": "http-server -p 3000 -o",
+    "build": "echo 'Site statique - pas de build nécessaire'"
+  },
+  "keywords": [
+    "deneigement",
+    "quebec",
+    "snow-removal"
+  ],
+  "author": "Déneigement Nordique Expert",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "http-server": "^14.1.1"
+  }
+}
+
