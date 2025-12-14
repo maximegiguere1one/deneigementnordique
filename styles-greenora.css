@@ -1970,11 +1970,14 @@
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .area-tag:hover {
     background: rgba(31, 122, 77, 0.3);
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 /* Social & CTA Section */
