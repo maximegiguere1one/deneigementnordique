@@ -1410,7 +1410,18 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement commercial durable" loading="lazy" decoding="async" width="800" height="600">
+                                <picture>
+                                    <source srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w" 
+                                            type="image/avif" 
+                                            sizes="(max-width: 768px) 100vw, 800px">
+                                    <img src="images/4 deneigeurs sur toit plat .jpeg" 
+                                         alt="Déneigement commercial durable" 
+                                         loading="lazy" 
+                                         decoding="async" 
+                                         width="800" 
+                                         height="600" 
+                                         sizes="(max-width: 768px) 100vw, 800px">
+                                </picture>
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
