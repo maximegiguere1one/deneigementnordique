@@ -83,12 +83,12 @@
     <!-- Preload Critical Resources - Performance Expert Level -->
     <link rel="preload" href="styles.css" as="style">
     <!-- Preload LCP Image ONLY - Mobile First avec breakpoints optimaux -->
-    <!-- Mobile: 640px (optimisé pour LCP < 1.0s, qualité légèrement réduite pour vitesse) -->
-    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_640,h_360,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(max-width: 768px)">
-    <!-- Tablet: 1024px (breakpoint tablet) -->
-    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_1024,h_576,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(min-width: 769px) and (max-width: 1024px)">
-    <!-- Desktop: 1920px (breakpoint desktop) -->
-    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(min-width: 1025px)">
+    <!-- Mobile: 480px (optimisé pour LCP < 1.0s, qualité légèrement réduite pour vitesse) -->
+    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_270,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(max-width: 768px)">
+    <!-- Tablet: 768px (breakpoint tablet) -->
+    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(min-width: 769px) and (max-width: 1024px)">
+    <!-- Desktop: 1400px (breakpoint desktop optimisé, pas 1920px) -->
+    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_1400,h_788,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(min-width: 1025px)">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
     
     <!-- Stylesheets - Critical CSS inline, non-critical loaded asynchronously -->
@@ -562,14 +562,15 @@
             <!-- AVIF prioritaire (f_auto), compression optimisée mobile (q_auto:good) pour vitesse -->
             <!-- Dimensions explicites pour CLS = 0 -->
             <!-- will-change pour optimisation GPU -->
-            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
-                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_320,h_180,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 320w, https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_270,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_640,h_360,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 640w, https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 768w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1024,h_576,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1024w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1440,h_810,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1440w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1920w"
+            <!-- Hero Image: Optimisé pour max 1400px desktop (pas 1920px) -->
+            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_1400,h_788,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
+                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_270,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 768w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1400,h_788,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1400w"
                  alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" 
                  fetchpriority="high" 
                  decoding="async" 
-                 width="1920" 
-                 height="1080"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1440px) 100vw, 1920px"
+                 width="1400" 
+                 height="788"
+                 sizes="100vw"
                  loading="eager"
                  style="aspect-ratio: 16/9; max-width: 100%; height: auto; display: block; will-change: auto; content-visibility: auto;">
         </div>
@@ -672,132 +673,222 @@
                     <div class="carousel-track-about">
                         <!-- Images will be duplicated for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes)-tablet.avif" 
-                                 srcset="images/equipe entrain de deneiger(3personenes)-mobile.avif 768w, images/equipe entrain de deneiger(3personenes)-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 700w"
                                  alt="Équipe professionnelle de déneigement manuel" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat -tablet.avif" 
-                                 srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 700w"
                                  alt="Déneigement manuel sur toit plat" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure-tablet.avif" 
-                                 srcset="images/4 deneigeur sur toit plat avec mordure-mobile.avif 768w, images/4 deneigeur sur toit plat avec mordure-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 700w"
                                  alt="Équipe de déneigement en action" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.avif" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_soumission 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission 700w"
+                                 alt="Consultation professionnelle" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.avif" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_evaluation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation 700w"
+                                 alt="Évaluation du site" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.avif" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_en_preparation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation 700w"
+                                 alt="Équipe en préparation" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <!-- Duplicate for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes)-tablet.avif" 
-                                 srcset="images/equipe entrain de deneiger(3personenes)-mobile.avif 768w, images/equipe entrain de deneiger(3personenes)-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 700w"
                                  alt="Équipe professionnelle de déneigement manuel" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat -tablet.avif" 
-                                 srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 700w"
                                  alt="Déneigement manuel sur toit plat" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure-tablet.avif" 
-                                 srcset="images/4 deneigeur sur toit plat avec mordure-mobile.avif 768w, images/4 deneigeur sur toit plat avec mordure-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 700w"
                                  alt="Équipe de déneigement en action" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.avif" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_soumission 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission 700w"
+                                 alt="Consultation professionnelle" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.avif" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_evaluation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation 700w"
+                                 alt="Évaluation du site" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.avif" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_en_preparation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation 700w"
+                                 alt="Équipe en préparation" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <!-- Third set for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes)-tablet.avif" 
-                                 srcset="images/equipe entrain de deneiger(3personenes)-mobile.avif 768w, images/equipe entrain de deneiger(3personenes)-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 700w"
                                  alt="Équipe professionnelle de déneigement manuel" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat -tablet.avif" 
-                                 srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 700w"
                                  alt="Déneigement manuel sur toit plat" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure-tablet.avif" 
-                                 srcset="images/4 deneigeur sur toit plat avec mordure-mobile.avif 768w, images/4 deneigeur sur toit plat avec mordure-tablet.avif 1280w"
+                            <!-- Carousel Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 700w"
                                  alt="Équipe de déneigement en action" 
                                  loading="lazy" 
                                  decoding="async" 
                                  width="700" 
                                  height="760" 
                                  sizes="(max-width: 768px) 100vw, 700px"
-                                 type="image/avif">
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.avif" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_soumission 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_soumission 700w"
+                                 alt="Consultation professionnelle" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.avif" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/en_evaluation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation 700w"
+                                 alt="Évaluation du site" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.avif" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760" type="image/avif">
+                            <!-- Process Image: Optimisé avec srcset Cloudinary -->
+                            <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation" 
+                                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_521,c_fill,q_auto:good,f_auto/v1765679356/equipe_en_preparation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_760,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation 700w"
+                                 alt="Équipe en préparation" 
+                                 loading="lazy" 
+                                 decoding="async" 
+                                 width="700" 
+                                 height="760" 
+                                 sizes="(max-width: 768px) 100vw, 700px"
+                                 style="aspect-ratio: 700 / 760; max-width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                 </div>
@@ -843,15 +934,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeurs sur toit plat -tablet.avif" 
-                                     srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w"
+                                <!-- Service Card Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 700w"
                                      alt="Déneigement de toits au Lac-Saint-Jean" 
                                      loading="lazy" 
                                      decoding="async" 
                                      width="700" 
                                      height="500" 
                                      sizes="(max-width: 768px) 100vw, 700px"
-                                     type="image/avif">
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -891,15 +983,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/equipe entrain de deneiger(3personenes)-tablet.avif" 
-                                     srcset="images/equipe entrain de deneiger(3personenes)-mobile.avif 768w, images/equipe entrain de deneiger(3personenes)-tablet.avif 1280w"
+                                <!-- Service Card Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 700w"
                                      alt="Déneigement résidentiel Lac-Saint-Jean" 
                                      loading="lazy" 
                                      decoding="async" 
                                      width="700" 
                                      height="500" 
                                      sizes="(max-width: 768px) 100vw, 700px"
-                                     type="image/avif">
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -939,15 +1032,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeur sur toit plat avec mordure-tablet.avif" 
-                                     srcset="images/4 deneigeur sur toit plat avec mordure-mobile.avif 768w, images/4 deneigeur sur toit plat avec mordure-tablet.avif 1280w"
+                                <!-- Service Card Image: Optimisé 480w mobile, 700w desktop (pas 1280w) -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeur_sur_toit_plat_avec_mordure 700w"
                                      alt="Déneigement commercial Lac-Saint-Jean" 
                                      loading="lazy" 
                                      decoding="async" 
                                      width="700" 
                                      height="500" 
                                      sizes="(max-width: 768px) 100vw, 700px"
-                                     type="image/avif">
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -987,7 +1081,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en soumission.avif" alt="Stationnements et accès" loading="lazy" decoding="async" width="700" height="500" type="image/avif">
+                                <!-- Service Card Image: Optimisé avec srcset Cloudinary -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/en_soumission" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/en_soumission 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/en_soumission 700w"
+                                     alt="Stationnements et accès" 
+                                     loading="lazy" 
+                                     decoding="async" 
+                                     width="700" 
+                                     height="500" 
+                                     sizes="(max-width: 768px) 100vw, 700px"
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -1027,7 +1130,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en evaluation.avif" alt="Déneigement après tempête" loading="lazy" decoding="async" width="700" height="500" type="image/avif">
+                                <!-- Service Card Image: Optimisé avec srcset Cloudinary -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/en_evaluation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/en_evaluation 700w"
+                                     alt="Déneigement après tempête" 
+                                     loading="lazy" 
+                                     decoding="async" 
+                                     width="700" 
+                                     height="500" 
+                                     sizes="(max-width: 768px) 100vw, 700px"
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -1067,7 +1179,16 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/équipe en preparation.avif" alt="Contrats saisonniers" loading="lazy" decoding="async" width="700" height="500" type="image/avif">
+                                <!-- Service Card Image: Optimisé avec srcset Cloudinary -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_343,c_fill,q_auto:good,f_auto/v1765679356/equipe_en_preparation 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_700,h_500,c_fill,q_auto:best,f_auto/v1765679356/equipe_en_preparation 700w"
+                                     alt="Contrats saisonniers" 
+                                     loading="lazy" 
+                                     decoding="async" 
+                                     width="700" 
+                                     height="500" 
+                                     sizes="(max-width: 768px) 100vw, 700px"
+                                     style="aspect-ratio: 700 / 500; max-width: 100%; height: auto; display: block;">
                             </div>
 
                             <div class="service-info-container">
@@ -1314,7 +1435,16 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/avant deneigement.avif" alt="Déneigement élégant de toit résidentiel" loading="lazy" decoding="async" width="800" height="600" type="image/avif">
+                                <!-- Work Image: Optimisé avec srcset Cloudinary 480w mobile, 800w desktop -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/avant_deneigement" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_360,c_fill,q_auto:good,f_auto/v1765679356/avant_deneigement 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/avant_deneigement 800w"
+                                     alt="Déneigement élégant de toit résidentiel" 
+                                     loading="lazy" 
+                                     decoding="async" 
+                                     width="800" 
+                                     height="600" 
+                                     sizes="(max-width: 768px) 100vw, 800px"
+                                     style="aspect-ratio: 800 / 600; max-width: 100%; height: auto; display: block;">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1349,7 +1479,16 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/apres deneigement.avif" alt="Déneigement résidentiel moderne" loading="lazy" decoding="async" width="800" height="600" type="image/avif">
+                                <!-- Work Image: Optimisé avec srcset Cloudinary 480w mobile, 800w desktop -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/apres_deneigement" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_360,c_fill,q_auto:good,f_auto/v1765679356/apres_deneigement 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/apres_deneigement 800w"
+                                     alt="Déneigement résidentiel moderne" 
+                                     loading="lazy" 
+                                     decoding="async" 
+                                     width="800" 
+                                     height="600" 
+                                     sizes="(max-width: 768px) 100vw, 800px"
+                                     style="aspect-ratio: 800 / 600; max-width: 100%; height: auto; display: block;">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1384,15 +1523,16 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/4 deneigeurs sur toit plat -tablet.avif" 
-                                     srcset="images/4 deneigeurs sur toit plat -mobile.avif 768w, images/4 deneigeurs sur toit plat -tablet.avif 1280w"
+                                <!-- Work Image: Optimisé 480w mobile, 800w desktop (pas 1280w) -->
+                                <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat" 
+                                     srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_360,c_fill,q_auto:good,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_800,h_600,c_fill,q_auto:best,f_auto/v1765679356/4_deneigeurs_sur_toit_plat 800w"
                                      alt="Déneigement commercial durable" 
                                      loading="lazy" 
                                      decoding="async" 
                                      width="800" 
                                      height="600" 
                                      sizes="(max-width: 768px) 100vw, 800px"
-                                     type="image/avif">
+                                     style="aspect-ratio: 800 / 600; max-width: 100%; height: auto; display: block;">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1470,16 +1610,17 @@
 
                             <div class="testimonials-avatars-container">
                                 <button class="testimonial-avatar-btn" data-index="0">
-                                    <img src="https://i.pravatar.cc/150?img=12" alt="Témoignage 1" class="testimonial-avatar-img">
+                                    <!-- Testimonial Avatar: Optimisé 150x150 fixe (pas besoin de srcset) -->
+                                    <img src="https://i.pravatar.cc/150?img=12" alt="Témoignage 1" class="testimonial-avatar-img" width="150" height="150" loading="lazy" decoding="async" style="aspect-ratio: 1 / 1; width: 100%; height: auto; display: block; border-radius: 50%;">
                                 </button>
                                 <button class="testimonial-avatar-btn" data-index="1">
-                                    <img src="https://i.pravatar.cc/150?img=13" alt="Témoignage 2" class="testimonial-avatar-img">
+                                    <img src="https://i.pravatar.cc/150?img=13" alt="Témoignage 2" class="testimonial-avatar-img" width="150" height="150" loading="lazy" decoding="async" style="aspect-ratio: 1 / 1; width: 100%; height: auto; display: block; border-radius: 50%;">
                                 </button>
                                 <button class="testimonial-avatar-btn active" data-index="2">
-                                    <img src="https://i.pravatar.cc/150?img=14" alt="Témoignage 3" class="testimonial-avatar-img">
+                                    <img src="https://i.pravatar.cc/150?img=14" alt="Témoignage 3" class="testimonial-avatar-img" width="150" height="150" loading="lazy" decoding="async" style="aspect-ratio: 1 / 1; width: 100%; height: auto; display: block; border-radius: 50%;">
                                 </button>
                                 <button class="testimonial-avatar-btn" data-index="3">
-                                    <img src="https://i.pravatar.cc/150?img=15" alt="Témoignage 4" class="testimonial-avatar-img">
+                                    <img src="https://i.pravatar.cc/150?img=15" alt="Témoignage 4" class="testimonial-avatar-img" width="150" height="150" loading="lazy" decoding="async" style="aspect-ratio: 1 / 1; width: 100%; height: auto; display: block; border-radius: 50%;">
                                 </button>
                             </div>
                         </div>
