@@ -329,23 +329,8 @@ document.addEventListener('DOMContentLoaded', function() {
     updateParallax(); // Initial call
     
     // Fade In Observer - Motion as Respiration: Plus lent, plus organique
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Ne pas retirer - Silence as Luxury
-            }
-        });
-    }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    // Use IntersectionObserver for all elements to avoid getBoundingClientRect() forced reflows
-    fadeElements.forEach(el => {
-        fadeObserver.observe(el);
-    });
+    // Note: fadeElements already declared above, reuse existing observer
+    // This section removed to avoid duplicate declaration
     
     // Carousel Animation - Greenora Style (Infinite Scroll)
     const carouselTrack = document.querySelector('.carousel-track');
