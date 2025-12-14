@@ -1798,14 +1798,16 @@
         </div>
     </footer>
 
-    <!-- Vercel Speed Insights -->
+    <!-- Vercel Speed Insights - Automatically enabled on Vercel deployments -->
     <script>
-        (function() {
-            var script = document.createElement('script');
-            script.src = 'https://cdn.vercel-insights.com/v1/script.debug.js';
-            script.defer = true;
-            document.head.appendChild(script);
-        })();
+        if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            (function() {
+                var script = document.createElement('script');
+                script.src = 'https://cdn.vercel-insights.com/v1/script.js';
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        }
     </script>
     
     <!-- JavaScript - Deferred for better performance -->
