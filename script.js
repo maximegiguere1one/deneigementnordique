@@ -78,259 +78,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Premium Navbar scroll effect - Fixed in hero, hidden after hero
-    // SOLUTION RADICALE: Utiliser IntersectionObserver pour détecter la fin du hero
+    // Premium Navbar scroll effect - hide menu once le hero est dépassé
     function initNavbarHide() {
-        console.log('[DEBUG] ===== initNavbarHide called =====');
-        console.log('[DEBUG] Document readyState:', document.readyState);
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:83',message:'initNavbarHide called',data:{readyState:document.readyState},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-        
         const navbar = document.querySelector('.greenora-navbar-transparent');
-        const heroEndMarker = document.querySelector('.hero-end-marker');
         const heroSection = document.querySelector('.greenora-hero');
-        
-        console.log('[DEBUG] Elements found:', {
-            navbar: !!navbar,
-            heroEndMarker: !!heroEndMarker,
-            heroSection: !!heroSection,
-            navbarElement: navbar,
-            markerElement: heroEndMarker,
-            heroElement: heroSection
-        });
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:90',message:'Elements found',data:{navbarFound:!!navbar,heroEndMarkerFound:!!heroEndMarker,heroSectionFound:!!heroSection},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-        
-        if (!navbar) {
-            console.error('[DEBUG] Navbar not found!');
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:93',message:'Navbar not found - early return',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-            // #endregion
-            return;
-        }
-        
-        if (!heroSection) {
-            console.error('[DEBUG] Hero section not found!');
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:99',message:'Hero section not found - early return',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-            // #endregion
-            return;
-        }
-        
-        if (!heroEndMarker) {
-            console.error('[DEBUG] Hero end marker not found!');
-        }
-        
-        // Make navbar fixed initially (in hero)
-        navbar.classList.add('fixed');
-        
-        // Function to hide navbar completely
-        function hideNavbar() {
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:108',message:'hideNavbar called',data:{navbarDisplay:getComputedStyle(navbar).display,navbarVisibility:getComputedStyle(navbar).visibility},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'F'})}).catch(()=>{});
-            // #endregion
-            
+
+        if (!navbar || !heroSection) return;
+
+        const hideNavbar = () => {
             navbar.classList.add('hidden-after-hero');
             navbar.classList.remove('scrolled');
-            
-            // Force hide with inline styles - CRITICAL
-            navbar.style.setProperty('display', 'none', 'important');
-            navbar.style.setProperty('visibility', 'hidden', 'important');
-            navbar.style.setProperty('opacity', '0', 'important');
-            navbar.style.setProperty('pointer-events', 'none', 'important');
-            navbar.style.setProperty('height', '0', 'important');
-            navbar.style.setProperty('overflow', 'hidden', 'important');
-            navbar.style.setProperty('position', 'fixed', 'important');
-            navbar.style.setProperty('top', '-1000px', 'important');
-            navbar.style.setProperty('z-index', '-9999', 'important');
-            
-            // #region agent log
-            const afterStyles = {display:navbar.style.display,visibility:navbar.style.visibility,opacity:navbar.style.opacity,computedDisplay:getComputedStyle(navbar).display,computedVisibility:getComputedStyle(navbar).visibility};
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:125',message:'After setting navbar styles',data:afterStyles,timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-            // #endregion
-            
-            // Hide ALL children
-            const allChildren = navbar.querySelectorAll('*');
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:130',message:'Hiding children',data:{childrenCount:allChildren.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-            // #endregion
-            
-            allChildren.forEach(function(el, idx) {
-                el.style.setProperty('display', 'none', 'important');
-                el.style.setProperty('visibility', 'hidden', 'important');
-                el.style.setProperty('opacity', '0', 'important');
-                el.style.setProperty('pointer-events', 'none', 'important');
-                el.style.setProperty('height', '0', 'important');
-                el.style.setProperty('width', '0', 'important');
-                el.style.setProperty('font-size', '0', 'important');
-                el.style.setProperty('line-height', '0', 'important');
-                
-                // #region agent log
-                if (idx < 5) { // Log first 5 children only
-                    fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:143',message:'Child hidden',data:{index:idx,tagName:el.tagName,className:el.className,computedDisplay:getComputedStyle(el).display},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-                }
-                // #endregion
-            });
-        }
-        
-        // Function to show navbar
-        function showNavbar() {
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:150',message:'showNavbar called',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'F'})}).catch(()=>{});
-            // #endregion
-            
+        };
+
+        const showNavbar = () => {
             navbar.classList.remove('hidden-after-hero');
-            
-            // Remove all inline styles
-            navbar.style.cssText = '';
-            const allChildren = navbar.querySelectorAll('*');
-            allChildren.forEach(function(el) {
-                el.style.cssText = '';
-            });
-            
-            // Add scrolled class if needed
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll > 50) {
+            if ((window.pageYOffset || document.documentElement.scrollTop) > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-        }
-        
-        // Method 1: Use IntersectionObserver on hero end marker (most reliable)
-        if (heroEndMarker) {
-            const markerRect = heroEndMarker.getBoundingClientRect();
-            console.log('[DEBUG] Setting up IntersectionObserver on marker:', {
-                markerRect: markerRect,
-                markerParent: heroEndMarker.parentElement?.className,
-                markerStyles: window.getComputedStyle(heroEndMarker)
-            });
-            
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:170',message:'Setting up IntersectionObserver',data:{markerRect:markerRect},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-            // #endregion
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    console.log('[DEBUG] IntersectionObserver callback:', {
-                        isIntersecting: entry.isIntersecting,
-                        intersectionRatio: entry.intersectionRatio,
-                        boundingClientRect: entry.boundingClientRect,
-                        rootBounds: entry.rootBounds
-                    });
-                    
-                    // #region agent log
-                    fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:175',message:'IntersectionObserver callback',data:{isIntersecting:entry.isIntersecting,intersectionRatio:entry.intersectionRatio,boundingClientRect:entry.boundingClientRect},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-                    // #endregion
-                    
-                    // If marker is NOT intersecting (out of viewport), hide navbar
-                    if (!entry.isIntersecting) {
-                        console.log('[DEBUG] Marker NOT intersecting - hiding navbar');
-                        // #region agent log
-                        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:179',message:'Marker not intersecting - calling hideNavbar',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-                        // #endregion
-                        hideNavbar();
-                    } else {
-                        console.log('[DEBUG] Marker intersecting - showing navbar');
-                        // #region agent log
-                        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:183',message:'Marker intersecting - calling showNavbar',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-                        // #endregion
+        };
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
                         showNavbar();
+                    } else {
+                        hideNavbar();
                     }
                 });
-            }, {
+            },
+            {
                 root: null,
-                rootMargin: '0px',
-                threshold: [0, 0.1, 0.5, 1.0] // Multiple thresholds for better detection
-            });
-            
-            observer.observe(heroEndMarker);
-            console.log('[DEBUG] IntersectionObserver started observing heroEndMarker');
-        } else {
-            console.error('[DEBUG] Hero end marker not found - IntersectionObserver not set up');
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:195',message:'Hero end marker not found',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-            // #endregion
-        }
-        
-        // Method 2: Fallback scroll detection
-        function checkScrollPosition() {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop || window.scrollY;
-            const heroRect = heroSection.getBoundingClientRect();
-            const heroBottom = heroRect.bottom;
-            const shouldHide = heroBottom <= 0;
-            
-            console.log('[DEBUG] checkScrollPosition:', {
-                currentScroll: currentScroll,
-                heroBottom: heroBottom,
-                shouldHide: shouldHide,
-                heroTop: heroRect.top,
-                heroHeight: heroRect.height
-            });
-            
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:203',message:'checkScrollPosition called',data:{currentScroll:currentScroll,heroBottom:heroBottom,shouldHide:shouldHide},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-            // #endregion
-            
-            // If hero bottom is above viewport top, hide navbar
-            if (shouldHide) {
-                console.log('[DEBUG] Hiding navbar because heroBottom <= 0');
-                // #region agent log
-                fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:208',message:'Hero bottom <= 0 - calling hideNavbar',data:{heroBottom:heroBottom},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-                // #endregion
-                hideNavbar();
-            } else {
-                console.log('[DEBUG] Showing navbar because heroBottom > 0');
-                // #region agent log
-                fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:211',message:'Hero bottom > 0 - calling showNavbar',data:{heroBottom:heroBottom},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-                // #endregion
-                showNavbar();
+                threshold: 0,
+                rootMargin: '0px 0px -20% 0px'
             }
+        );
+
+        observer.observe(heroSection);
+
+        window.addEventListener(
+            'scroll',
+            () => {
+                if (!navbar.classList.contains('hidden-after-hero')) {
+                    showNavbar();
+                }
+            },
+            { passive: true }
+        );
+
+        // Vérifie la position courante au cas où l'utilisateur recharge plus bas que le hero
+        if ((window.pageYOffset || document.documentElement.scrollTop) >= heroSection.offsetHeight) {
+            hideNavbar();
         }
-        
-        // Throttled scroll handler
-        let ticking = false;
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    checkScrollPosition();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', onScroll, { passive: true });
-        
-        // Check immediately
-        setTimeout(function() {
-            checkScrollPosition();
-        }, 100);
-        
-        // Check on resize
-        window.addEventListener('resize', checkScrollPosition, { passive: true });
-        
-        // Safety net: check every 50ms
-        setInterval(checkScrollPosition, 50);
     }
-    
-    // Execute immediately
-    if (document.readyState === 'loading') {
-        // #region agent log
-        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:238',message:'DOM loading - adding DOMContentLoaded listener',data:{readyState:document.readyState},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-        document.addEventListener('DOMContentLoaded', initNavbarHide);
-    } else {
-        // DOM already loaded, run immediately
-        // #region agent log
-        fetch('http://127.0.0.1:7245/ingest/2c0c6ec6-14e5-488c-98bd-e562b1da3bca',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:243',message:'DOM ready - calling initNavbarHide immediately',data:{readyState:document.readyState},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-        setTimeout(initNavbarHide, 0);
-    }
+
+    initNavbarHide();
     
     // Mobile Menu Toggle - Premium Navbar
     const mobileToggle = document.getElementById('nav-mobile-toggle');
