@@ -24,7 +24,7 @@ Disallow: /package.json
 Disallow: /package-lock.json
 
 # Sitemap
-Sitemap: https://www.deneigementnordiqueexpert.com/sitemap.xml
+Sitemap: https://www.deneigementnordique.com/sitemap.xml
 
 # Crawl-delay pour éviter la surcharge (optionnel)
 Crawl-delay: 1

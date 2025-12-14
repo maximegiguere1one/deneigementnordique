@@ -176,7 +176,7 @@
 
 #### Liens externes
 - ✅ Téléphone : `tel:+14188123456`
-- ✅ Email : `mailto:info@deneigementnordiqueexpert.com`
+- ✅ Email : `mailto:info@deneigementnordique.com`
 - ✅ Réseaux sociaux : `#` (placeholder)
 
 ### 8. RESPONSIVE DESIGN ✅
