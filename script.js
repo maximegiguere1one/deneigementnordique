@@ -286,10 +286,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Pas de scale - Restraint
         }
         
-        // Layer 2: Images seulement (très subtil)
+        // Layer 2: Images seulement (très subtil) - Optimized to reduce reflows
         const images = document.querySelectorAll('.process-step-image, .why-choose-image');
         images.forEach(el => {
-            const rect = el.getBoundingClientRect();
+            // Cache rect to avoid multiple getBoundingClientRect calls
+            const rect = el.dataset.rect ? JSON.parse(el.dataset.rect) : el.getBoundingClientRect();
+            if (!el.dataset.rect) {
+                el.dataset.rect = JSON.stringify({top: rect.top, height: rect.height});
+            }
             const elementTop = rect.top + scrolled;
             const elementCenter = elementTop + rect.height / 2;
             const viewportCenter = scrolled + windowHeight / 2;
