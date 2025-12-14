@@ -65,6 +65,9 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon vf1.png">
     
     <!-- Preconnect for Performance - Early DNS resolution -->
+    <!-- CRITIQUE: Preconnect Cloudinary pour réduire LCP de 1000-2000ms -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.vercel-insights.com">
@@ -90,8 +93,8 @@
     <!-- Preload Critical Resources - Performance Expert Level -->
     <link rel="preload" href="styles.css" as="style">
     <!-- Preload LCP Image ONLY - Mobile First avec breakpoints optimaux -->
-    <!-- Mobile: 768px (breakpoint critique mobile) -->
-    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(max-width: 768px)">
+    <!-- Mobile: 640px (optimisé pour LCP < 1.0s, qualité légèrement réduite pour vitesse) -->
+    <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_640,h_360,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(max-width: 768px)">
     <!-- Tablet: 1024px (breakpoint tablet) -->
     <link rel="preload" href="https://res.cloudinary.com/datq0v1yx/image/upload/w_1024,h_576,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" as="image" fetchpriority="high" media="(min-width: 769px) and (max-width: 1024px)">
     <!-- Desktop: 1920px (breakpoint desktop) -->

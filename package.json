@@ -24,6 +24,7 @@
     "cloudinary": "^1.41.0",
     "cssnano-cli": "^1.0.5",
     "http-server": "^14.1.1",
+    "lighthouse": "^12.8.2",
     "live-server": "^1.2.2",
     "terser": "^5.44.1"
   },
