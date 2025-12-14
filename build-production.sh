@@ -75,31 +75,48 @@ cp -r problemes-risques dist/ 2>/dev/null || true
 cp -r reglementation dist/ 2>/dev/null || true
 echo "  ✅ Fichiers copiés"
 
-# 4. Créer version production de index.html avec fichiers minifiés
-echo "🔧 Création index.html production..."
-if [ -f dist/index.html ]; then
-    # Remplacer les références CSS/JS par versions minifiées
-    sed -i.bak 's/styles\.css/styles.min.css/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/styles\.css/styles.min.css/g' dist/index.html 2>/dev/null || true
-    
-    sed -i.bak 's/styles-greenora\.css/styles-greenora.min.css/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/styles-greenora\.css/styles-greenora.min.css/g' dist/index.html 2>/dev/null || true
-    
-    sed -i.bak 's/styles-nav-premium\.css/styles-nav-premium.min.css/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/styles-nav-premium\.css/styles-nav-premium.min.css/g' dist/index.html 2>/dev/null || true
-    
-    sed -i.bak 's/styles-clean-design\.css/styles-clean-design.min.css/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/styles-clean-design\.css/styles-clean-design.min.css/g' dist/index.html 2>/dev/null || true
-    
-    sed -i.bak 's/styles-greenora-exact\.css/styles-greenora-exact.min.css/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/styles-greenora-exact\.css/styles-greenora-exact.min.css/g' dist/index.html 2>/dev/null || true
-    
-    sed -i.bak 's/script\.js/script.min.js/g' dist/index.html 2>/dev/null || \
-    sed -i '' 's/script\.js/script.min.js/g' dist/index.html 2>/dev/null || true
-    
-    rm -f dist/index.html.bak 2>/dev/null || true
-    echo "  ✅ index.html optimisé"
-fi
+# 4. Créer version production de TOUS les fichiers HTML avec fichiers minifiés
+echo "🔧 Mise à jour de tous les fichiers HTML pour utiliser les versions minifiées..."
+find dist -name "*.html" -type f | while read html_file; do
+    # Remplacer les références CSS/JS par versions minifiées dans TOUS les fichiers HTML
+    # Gérer à la fois les chemins relatifs ../ et absolus /
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS - remplacer chemins relatifs ET absolus
+        sed -i '' 's|\.\./styles\.css|/styles.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles\.css|/styles.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./styles-greenora\.css|/styles-greenora.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles-greenora\.css|/styles-greenora.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./styles-nav-premium\.css|/styles-nav-premium.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles-nav-premium\.css|/styles-nav-premium.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./styles-clean-design\.css|/styles-clean-design.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles-clean-design\.css|/styles-clean-design.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./styles-greenora-exact\.css|/styles-greenora-exact.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles-greenora-exact\.css|/styles-greenora-exact.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./styles-seo-pages\.css|/styles-seo-pages.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|/styles-seo-pages\.css|/styles-seo-pages.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./script\.js|/script.js|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./script-critical\.js|/script-critical.js|g' "$html_file" 2>/dev/null || true
+        sed -i '' 's|\.\./script-non-critical\.js|/script-non-critical.js|g' "$html_file" 2>/dev/null || true
+    else
+        # Linux
+        sed -i 's|\.\./styles\.css|/styles.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles\.css|/styles.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./styles-greenora\.css|/styles-greenora.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles-greenora\.css|/styles-greenora.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./styles-nav-premium\.css|/styles-nav-premium.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles-nav-premium\.css|/styles-nav-premium.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./styles-clean-design\.css|/styles-clean-design.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles-clean-design\.css|/styles-clean-design.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./styles-greenora-exact\.css|/styles-greenora-exact.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles-greenora-exact\.css|/styles-greenora-exact.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./styles-seo-pages\.css|/styles-seo-pages.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|/styles-seo-pages\.css|/styles-seo-pages.min.css|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./script\.js|/script.js|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./script-critical\.js|/script-critical.js|g' "$html_file" 2>/dev/null || true
+        sed -i 's|\.\./script-non-critical\.js|/script-non-critical.js|g' "$html_file" 2>/dev/null || true
+    fi
+done
+echo "  ✅ Tous les fichiers HTML optimisés"
 
 # 5. Statistiques
 echo ""
