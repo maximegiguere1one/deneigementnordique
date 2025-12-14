@@ -76,21 +76,15 @@
     <link rel="preload" href="images/equipe entrain de deneiger(3personenes).jpeg" as="image" fetchpriority="high" media="(max-width: 768px)">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
     
-    <!-- Stylesheets - Loaded asynchronously on mobile -->
-    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-    <link rel="stylesheet" href="styles-greenora.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles-greenora.css"></noscript>
-    <link rel="stylesheet" href="styles-nav-premium.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles-nav-premium.css"></noscript>
-    <link rel="stylesheet" href="styles-clean-design.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles-clean-design.css"></noscript>
-    <link rel="stylesheet" href="styles-greenora-exact.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles-greenora-exact.css"></noscript>
+    <!-- Stylesheets - Critical CSS loaded immediately, non-critical deferred on mobile -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-greenora.css">
+    <link rel="stylesheet" href="styles-nav-premium.css">
+    <link rel="stylesheet" href="styles-clean-design.css">
+    <link rel="stylesheet" href="styles-greenora-exact.css">
     
     <!-- Fonts loaded with font-display: swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Schema.org Structured Data - LocalBusiness -->
     <script type="application/ld+json">
@@ -1809,25 +1803,23 @@
     
     <!-- Mobile Performance Optimization -->
     <script>
-        // Load non-critical CSS asynchronously
-        (function() {
-            var links = document.querySelectorAll('link[media="print"]');
-            links.forEach(function(link) {
-                link.onload = function() {
-                    this.media = 'all';
-                };
-            });
-        })();
-        
         // Reduce layout shift on mobile
         if (window.innerWidth <= 768) {
             document.addEventListener('DOMContentLoaded', function() {
+                // Reserve space for lazy-loaded images
                 var images = document.querySelectorAll('img[loading="lazy"]');
                 images.forEach(function(img) {
-                    if (!img.complete) {
-                        img.style.minHeight = img.getAttribute('height') + 'px';
+                    if (img.hasAttribute('width') && img.hasAttribute('height')) {
+                        var aspectRatio = img.getAttribute('height') / img.getAttribute('width');
+                        img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
                     }
                 });
+                
+                // Optimize carousel performance on mobile
+                var carousel = document.querySelector('.carousel-track-about');
+                if (carousel) {
+                    carousel.style.willChange = 'transform';
+                }
             });
         }
     </script>

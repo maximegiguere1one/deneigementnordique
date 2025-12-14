@@ -2297,11 +2297,9 @@ p {
     }
     
     /* Reduce animations on mobile for better performance */
-    * {
-        animation-duration: 0.01ms !important;
-        animation-delay: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        transition-delay: 0.01ms !important;
+    .fade-in,
+    .carousel-track-about {
+        will-change: transform;
     }
     
     /* Disable parallax on mobile */
@@ -2312,6 +2310,15 @@ p {
     
     /* Optimize carousel for mobile */
     .carousel-track-about {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+    
+    /* Reduce repaints on mobile */
+    .service-card-wrapper,
+    .work-card,
+    .testimonial-card {
+        transform: translateZ(0);
         will-change: transform;
     }
 }
