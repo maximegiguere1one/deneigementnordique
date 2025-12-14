@@ -544,6 +544,7 @@
         </div>
     </nav>
 
+    <main>
     <!-- Hero Section - Greenora Exact Style -->
     <section class="greenora-hero" id="hero">
         <div class="greenora-hero-bg">
@@ -1980,7 +1981,7 @@
                 var images = document.querySelectorAll('img[loading="lazy"]');
                 images.forEach(function(img) {
                     if (img.hasAttribute('width') && img.hasAttribute('height')) {
-                        var aspectRatio = img.getAttribute('height') / img.getAttribute('width');
+                        // Set aspect-ratio directly without reading layout properties
                         img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
                     }
                 });
