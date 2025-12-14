@@ -1,0 +1,43 @@
+/* Critical CSS for Mobile - Above the fold only */
+/* This file contains only the essential styles needed for initial render on mobile */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #1F3A56;
+    --color-secondary: #1F7A4D;
+    --color-accent: #2FA4D9;
+    --color-white: #FFFFFF;
+    --color-light-gray: #F4F6F8;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-primary);
+    overflow-x: hidden;
+}
+
+/* Mobile-first viewport */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        font-size: 0.875rem;
+    }
+}
+

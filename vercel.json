@@ -60,6 +60,19 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Accept-CH",
+          "value": "DPR, Viewport-Width, Width"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept-CH"
+        }
+      ]
     }
   ],
   "cleanUrls": true,

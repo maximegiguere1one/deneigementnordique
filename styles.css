@@ -2289,5 +2289,30 @@ p {
         padding: 0.875rem 1.5rem;
         font-size: 0.95rem;
     }
+    
+    /* Mobile Performance Optimizations */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    * {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0.01ms !important;
+    }
+    
+    /* Disable parallax on mobile */
+    .parallax,
+    [data-parallax] {
+        transform: none !important;
+    }
+    
+    /* Optimize carousel for mobile */
+    .carousel-track-about {
+        will-change: transform;
+    }
 }
 

@@ -2,7 +2,10 @@
 <html lang="fr-CA" itemscope itemtype="https://schema.org/LocalBusiness">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Primary Meta Tags -->
     <title>Déneigement Manuel Lac-Saint-Jean | Toits, Résidentiel & Commercial | Déneigement Nordique Expert</title>
@@ -52,20 +55,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
+    <!-- Critical CSS Inline for Mobile Performance -->
+    <style>
+        /* Critical above-the-fold styles */
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:16px;-webkit-font-smoothing:antialiased}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#1F3A56;overflow-x:hidden}
+        @media(max-width:768px){html{font-size:14px}}
+        .greenora-navbar-transparent{position:fixed;top:0;left:0;right:0;width:100%;background:transparent;z-index:10000}
+        .greenora-hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .greenora-hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+        .greenora-hero-bg img{width:100%;height:100%;object-fit:cover}
+        .greenora-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1}
+        .greenora-hero-content{position:relative;z-index:2;width:100%;max-width:1200px;padding:2rem}
+        @media(max-width:768px){.greenora-hero{min-height:70vh}.greenora-hero-content{padding:1rem}}
+    </style>
+    
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="images/equipe entrain de deneiger(3personenes).jpeg" as="image" fetchpriority="high">
+    <link rel="preload" href="images/equipe entrain de deneiger(3personenes).jpeg" as="image" fetchpriority="high" media="(max-width: 768px)">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
     
-    <!-- Stylesheets - Critical CSS loaded immediately -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-greenora.css">
-    <link rel="stylesheet" href="styles-nav-premium.css">
-    <link rel="stylesheet" href="styles-clean-design.css">
-    <link rel="stylesheet" href="styles-greenora-exact.css">
+    <!-- Stylesheets - Loaded asynchronously on mobile -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="stylesheet" href="styles-greenora.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles-greenora.css"></noscript>
+    <link rel="stylesheet" href="styles-nav-premium.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles-nav-premium.css"></noscript>
+    <link rel="stylesheet" href="styles-clean-design.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles-clean-design.css"></noscript>
+    <link rel="stylesheet" href="styles-greenora-exact.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles-greenora-exact.css"></noscript>
     
     <!-- Fonts loaded with font-display: swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <!-- Schema.org Structured Data - LocalBusiness -->
     <script type="application/ld+json">
@@ -506,7 +531,16 @@
     <!-- Hero Section - Greenora Exact Style -->
     <section class="greenora-hero" id="hero">
         <div class="greenora-hero-bg">
-            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" fetchpriority="high" decoding="async" width="1920" height="1080">
+            <img src="images/equipe entrain de deneiger(3personenes).jpeg" 
+                 alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" 
+                 fetchpriority="high" 
+                 decoding="async" 
+                 width="1920" 
+                 height="1080"
+                 sizes="100vw"
+                 srcset="images/equipe entrain de deneiger(3personenes).jpeg 1920w,
+                         images/equipe entrain de deneiger(3personenes).jpeg 1280w,
+                         images/equipe entrain de deneiger(3personenes).jpeg 768w">
         </div>
         <div class="greenora-hero-overlay"></div>
         <div class="greenora-hero-content">
@@ -1772,6 +1806,31 @@
 
     <!-- JavaScript - Deferred for better performance -->
     <script src="script.js" defer></script>
+    
+    <!-- Mobile Performance Optimization -->
+    <script>
+        // Load non-critical CSS asynchronously
+        (function() {
+            var links = document.querySelectorAll('link[media="print"]');
+            links.forEach(function(link) {
+                link.onload = function() {
+                    this.media = 'all';
+                };
+            });
+        })();
+        
+        // Reduce layout shift on mobile
+        if (window.innerWidth <= 768) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(function(img) {
+                    if (!img.complete) {
+                        img.style.minHeight = img.getAttribute('height') + 'px';
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 </html>
 
