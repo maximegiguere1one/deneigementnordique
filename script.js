@@ -319,11 +319,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Throttle plus agressif - Performance is Part of Design
     let lastScroll = 0;
+    let parallaxTimeout;
     window.addEventListener('scroll', function() {
         const now = Date.now();
         if (now - lastScroll < 16) return; // ~60fps max
         lastScroll = now;
-        requestTick();
+        if (parallaxTimeout) return;
+        parallaxTimeout = requestAnimationFrame(function() {
+            requestTick();
+            parallaxTimeout = null;
+        });
     }, { passive: true });
     
     updateParallax(); // Initial call
@@ -332,84 +337,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // Note: fadeElements already declared above, reuse existing observer
     // This section removed to avoid duplicate declaration
     
-    // Carousel Animation - Greenora Style (Infinite Scroll)
+    // Carousel Animation - Lazy load when visible
     const carouselTrack = document.querySelector('.carousel-track');
     if (carouselTrack) {
-        // Dupliquer les slides pour boucle infinie
-        const slides = Array.from(carouselTrack.querySelectorAll('.carousel-slide'));
-        slides.forEach(slide => {
-            const clone = slide.cloneNode(true);
-            carouselTrack.appendChild(clone);
-        });
-    }
-    
-    // Stagger Animation for Grid Items - Greenora Style
-    const gridItems = document.querySelectorAll('.services-grid-greenora .fade-in, .why-us-grid-greenora .fade-in, .works-grid-greenora .fade-in, .testimonials-grid-greenora .fade-in, .stats-grid-greenora .fade-in');
-    gridItems.forEach((item, index) => {
-        item.style.setProperty('--index', index);
-        item.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    // Atmospheric Particles - Particules flottantes subtiles
-    function createAtmosphericParticles() {
-        const hero = document.querySelector('.hero');
-        if (!hero) return;
-        
-        const particlesContainer = document.createElement('div');
-        particlesContainer.className = 'atmospheric-particles';
-        particlesContainer.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        `;
-        
-        hero.appendChild(particlesContainer);
-        
-        // Créer max 15 particules
-        for (let i = 0; i < 15; i++) {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: ${Math.random() * 4 + 2}px;
-                height: ${Math.random() * 4 + 2}px;
-                background: rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1});
-                border-radius: 50%;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                animation: drift-${i} ${Math.random() * 20 + 15}s infinite linear;
-                filter: blur(${Math.random() * 2 + 1}px);
-            `;
-            
-            // Créer animation CSS dynamique
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes drift-${i} {
-                    0% {
-                        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-                        opacity: ${Math.random() * 0.5 + 0.2};
-                    }
-                    50% {
-                        transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
-                        opacity: ${Math.random() * 0.3 + 0.1};
-                    }
-                    100% {
-                        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-                        opacity: ${Math.random() * 0.5 + 0.2};
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const slides = Array.from(carouselTrack.querySelectorAll('.carousel-slide'));
+                    if (slides.length > 0 && !carouselTrack.dataset.initialized) {
+                        slides.forEach(slide => {
+                            const clone = slide.cloneNode(true);
+                            carouselTrack.appendChild(clone);
+                        });
+                        carouselTrack.dataset.initialized = 'true';
+                        carouselObserver.disconnect();
                     }
                 }
-            `;
-            document.head.appendChild(style);
-            
-            particlesContainer.appendChild(particle);
-        }
+            });
+        }, { rootMargin: '100px' });
+        carouselObserver.observe(carouselTrack);
     }
     
-    createAtmosphericParticles();
+    // Stagger Animation for Grid Items - Defer to idle
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+            const gridItems = document.querySelectorAll('.services-grid-greenora .fade-in, .why-us-grid-greenora .fade-in, .works-grid-greenora .fade-in, .testimonials-grid-greenora .fade-in, .stats-grid-greenora .fade-in');
+            gridItems.forEach((item, index) => {
+                item.style.setProperty('--index', index);
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(function() {
+            const gridItems = document.querySelectorAll('.services-grid-greenora .fade-in, .why-us-grid-greenora .fade-in, .works-grid-greenora .fade-in, .testimonials-grid-greenora .fade-in, .stats-grid-greenora .fade-in');
+            gridItems.forEach((item, index) => {
+                item.style.setProperty('--index', index);
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 100);
+    }
+    
+    // Atmospheric Particles - Lazy load on desktop only, skip on mobile for performance
+    if (window.innerWidth > 768 && 'requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+            function createAtmosphericParticles() {
+                const hero = document.querySelector('.hero');
+                if (!hero) return;
+                
+                const particlesContainer = document.createElement('div');
+                particlesContainer.className = 'atmospheric-particles';
+                particlesContainer.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden';
+                hero.appendChild(particlesContainer);
+                
+                // Réduire à 8 particules pour meilleure performance
+                for (let i = 0; i < 8; i++) {
+                    const particle = document.createElement('div');
+                    const size = Math.random() * 3 + 2;
+                    particle.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:rgba(255,255,255,${Math.random() * 0.2 + 0.1});border-radius:50%;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation:drift-${i} ${Math.random() * 20 + 15}s infinite linear;filter:blur(1px);will-change:transform`;
+                    
+                    const style = document.createElement('style');
+                    style.textContent = `@keyframes drift-${i}{0%{transform:translate(${Math.random() * 50 - 25}px,${Math.random() * 50 - 25}px);opacity:${Math.random() * 0.3 + 0.1}}100%{transform:translate(${Math.random() * 50 - 25}px,${Math.random() * 50 - 25}px);opacity:${Math.random() * 0.3 + 0.1}}}`;
+                    document.head.appendChild(style);
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            createAtmosphericParticles();
+        }, { timeout: 2000 });
+    }
 
     // Add active state to nav links based on scroll position
     const sections = document.querySelectorAll('section[id]');
@@ -435,7 +430,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    window.addEventListener('scroll', updateActiveNav);
+    // Use passive listener and throttle for better performance
+    let navUpdateTimeout3;
+    window.addEventListener('scroll', function() {
+        if (navUpdateTimeout3) return;
+        navUpdateTimeout3 = requestAnimationFrame(function() {
+            updateActiveNav();
+            navUpdateTimeout3 = null;
+        });
+    }, { passive: true });
     updateActiveNav(); // Call on load
 });
 

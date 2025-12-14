@@ -64,10 +64,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon vf1.png">
     <link rel="shortcut icon" type="image/png" href="images/favicon vf1.png">
     
-    <!-- Preconnect for Performance -->
+    <!-- Preconnect for Performance - Early DNS resolution -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.vercel-insights.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
     <!-- Critical CSS Inline for Mobile Performance -->
     <style>
@@ -105,7 +107,11 @@
     <noscript><link rel="stylesheet" href="styles-greenora-exact.css"></noscript>
     
     <!-- Fonts loaded with font-display: swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload font files for critical fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59FO_F87jxeN7B.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <!-- Schema.org Structured Data - LocalBusiness -->
     <script type="application/ld+json">
@@ -1937,6 +1943,21 @@
         }
     </script>
     
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registered:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+    
     <!-- JavaScript - Deferred for better performance -->
     <script src="script.js" defer></script>
     
@@ -1958,8 +1979,22 @@
                 var carousel = document.querySelector('.carousel-track-about');
                 if (carousel) {
                     carousel.style.willChange = 'transform';
+                    carousel.style.transform = 'translateZ(0)';
+                    carousel.style.backfaceVisibility = 'hidden';
                 }
             });
+        }
+        
+        // Lazy load non-critical animations when idle
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                // Preload carousel animation script only when needed
+                var carouselTrack = document.querySelector('.carousel-track-about');
+                if (carouselTrack && !carouselTrack.dataset.animated) {
+                    // Carousel animation will be handled by main script when visible
+                    carouselTrack.dataset.animated = 'true';
+                }
+            }, { timeout: 3000 });
         }
     </script>
 </body>
