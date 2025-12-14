@@ -1992,44 +1992,51 @@
     <!-- Main JavaScript - Chargé après page interactive -->
     <script src="script.js" defer></script>
     
-    <!-- Mobile Performance Optimization - Ultra Optimisé -->
+    <!-- Mobile Performance Optimization - Zero Forced Layouts -->
     <script>
-        // Optimisations critiques pour mobile - Exécuté immédiatement
+        // Optimisations critiques pour mobile - Zero forced layouts
         (function() {
             'use strict';
             var w = window;
             var d = document;
             
-            // Reduce layout shift on mobile - Exécuté immédiatement
-            if (w.innerWidth <= 768) {
-                // Utiliser requestIdleCallback si disponible, sinon setTimeout
+            // Cache window width to avoid repeated reads
+            var cachedWindowWidth = w.innerWidth;
+            
+            // Reduce layout shift on mobile - Batch all READS first, then WRITES
+            if (cachedWindowWidth <= 768) {
                 var runOptimizations = function() {
-                    // Reserve space for lazy-loaded images
+                    // READ: Get all images first
                     var images = d.querySelectorAll('img[loading="lazy"]');
-                    var i = 0;
-                    var processImage = function() {
-                        if (i < images.length) {
-                            var img = images[i];
-                            if (img.hasAttribute('width') && img.hasAttribute('height')) {
-                                img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
-                            }
-                            i++;
-                            if (i < images.length) {
-                                requestAnimationFrame(processImage);
-                            }
-                        }
-                    };
-                    if (images.length > 0) {
-                        requestAnimationFrame(processImage);
-                    }
+                    var imageStyles = [];
                     
-                    // Optimize carousel performance on mobile
+                    images.forEach(function(img) {
+                        if (img.hasAttribute('width') && img.hasAttribute('height')) {
+                            var width = img.getAttribute('width');
+                            var height = img.getAttribute('height');
+                            imageStyles.push({
+                                element: img,
+                                aspectRatio: width + ' / ' + height
+                            });
+                        }
+                    });
+                    
+                    // WRITE: Apply all styles in one batch
+                    requestAnimationFrame(function() {
+                        imageStyles.forEach(function(item) {
+                            item.element.style.aspectRatio = item.aspectRatio;
+                        });
+                    });
+                    
+                    // Optimize carousel performance on mobile - Batch writes
                     var carousel = d.querySelector('.carousel-track-about');
                     if (carousel) {
-                        carousel.style.willChange = 'transform';
-                        carousel.style.transform = 'translateZ(0)';
-                        carousel.style.backfaceVisibility = 'hidden';
-                        carousel.style.contentVisibility = 'auto';
+                        requestAnimationFrame(function() {
+                            carousel.style.willChange = 'transform';
+                            carousel.style.transform = 'translateZ(0)';
+                            carousel.style.backfaceVisibility = 'hidden';
+                            carousel.style.contentVisibility = 'auto';
+                        });
                     }
                 };
                 
@@ -2041,7 +2048,14 @@
                 }
             }
             
-            // Lazy load non-critical animations when idle
+            // Cache window width on resize (passive)
+            w.addEventListener('resize', function() {
+                requestAnimationFrame(function() {
+                    cachedWindowWidth = w.innerWidth;
+                });
+            }, { passive: true });
+            
+            // Lazy load non-critical animations when idle - No layout reads
             if ('requestIdleCallback' in w) {
                 requestIdleCallback(function() {
                     var carouselTrack = d.querySelector('.carousel-track-about');
@@ -2050,7 +2064,6 @@
                     }
                 }, { timeout: 3000 });
             } else {
-                // Fallback pour navigateurs sans requestIdleCallback
                 setTimeout(function() {
                     var carouselTrack = d.querySelector('.carousel-track-about');
                     if (carouselTrack && !carouselTrack.dataset.animated) {
