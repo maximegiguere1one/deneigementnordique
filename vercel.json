@@ -40,6 +40,10 @@
         {
           "key": "Content-Encoding",
           "value": "br"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/css; charset=utf-8"
         }
       ]
     },

@@ -1,19 +1,38 @@
-/* Reset & Base Styles */
+/* Reset & Base Styles - Optimisé pour performance */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Font Display Optimization */
+/* Performance optimizations */
+*,
+*::before,
+*::after {
+    /* Utiliser GPU pour animations */
+    will-change: auto;
+}
+
+/* Optimiser les animations */
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Font Display Optimization - Swap pour performance maximale */
 @font-face {
     font-family: 'Inter';
     font-display: swap;
+    font-weight: 400 700;
 }
 
 @font-face {
     font-family: 'Manrope';
     font-display: swap;
+    font-weight: 400 800;
 }
 
 :root {

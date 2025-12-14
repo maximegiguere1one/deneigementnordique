@@ -74,20 +74,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Critical CSS Inline for Mobile Performance -->
+    <!-- Critical CSS Inline for Mobile Performance - Ultra Optimisé -->
     <style>
-        /* Critical above-the-fold styles */
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{font-size:16px;-webkit-font-smoothing:antialiased}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#1F3A56;overflow-x:hidden}
-        @media(max-width:768px){html{font-size:14px}}
-        .greenora-navbar-transparent{position:fixed;top:0;left:0;right:0;width:100%;background:transparent;z-index:10000}
-        .greenora-hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-        .greenora-hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
-        .greenora-hero-bg img{width:100%;height:100%;object-fit:cover}
-        .greenora-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1}
-        .greenora-hero-content{position:relative;z-index:2;width:100%;max-width:1200px;padding:2rem}
-        @media(max-width:768px){.greenora-hero{min-height:70vh}.greenora-hero-content{padding:1rem}}
+        /* Critical above-the-fold styles - Minifié pour performance maximale */
+        *{margin:0;padding:0;box-sizing:border-box}html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#1F3A56;overflow-x:hidden;text-rendering:optimizeLegibility}@media(max-width:768px){html{font-size:14px}}.greenora-navbar-transparent{position:fixed;top:0;left:0;right:0;width:100%;background:transparent;z-index:10000;will-change:background-color,backdrop-filter}.greenora-hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;contain:layout style paint}.greenora-hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;will-change:transform}.greenora-hero-bg img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}.greenora-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1}.greenora-hero-content{position:relative;z-index:2;width:100%;max-width:1200px;padding:2rem;contain:layout}@media(max-width:768px){.greenora-hero{min-height:70vh}.greenora-hero-content{padding:1rem}}
     </style>
     
     <!-- Preload Critical Resources - Performance Expert Level -->
@@ -102,21 +92,28 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
     
     <!-- Stylesheets - Critical CSS inline, non-critical loaded asynchronously -->
+    <!-- Main CSS chargé immédiatement (critique) -->
     <link rel="stylesheet" href="styles.css">
     <!-- Non-critical CSS loaded asynchronously to avoid blocking render -->
-    <link rel="preload" href="styles-greenora.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Utilisation de media="print" + onload pour chargement non-bloquant -->
+    <link rel="preload" href="styles-greenora.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
     <noscript><link rel="stylesheet" href="styles-greenora.css"></noscript>
-    <link rel="preload" href="styles-nav-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles-nav-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
     <noscript><link rel="stylesheet" href="styles-nav-premium.css"></noscript>
-    <link rel="preload" href="styles-clean-design.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles-clean-design.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
     <noscript><link rel="stylesheet" href="styles-clean-design.css"></noscript>
-    <link rel="preload" href="styles-greenora-exact.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles-greenora-exact.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
     <noscript><link rel="stylesheet" href="styles-greenora-exact.css"></noscript>
+    <!-- Fallback script pour navigateurs sans onload support -->
+    <script>
+        !function(e){"use strict";var t=function(t,n,o){var i,r=e.document,a=i=function(){var e,r=i.media||"all";return e=t.onload=null,t.rel="stylesheet",t.media=r,o&&setTimeout(function(){e},0),t};return t.addEventListener?t.addEventListener("error",function(){i(null,t)}):t.onerror=i,t.rel="preload",t.href=n,t.as="style",r.head.appendChild(t),t};if(e.loadCSS){var o=loadCSS;loadCSS=function(e,n,i){return t(e,n,i),o.apply(null,arguments)}}else{e.loadCSS=function(e,n){var o,i=e.document,r=i.createElement("link");return r.rel="stylesheet",r.href=e,r.media="only x",o=function(e){r.media=e||"all"},i.head.appendChild(r),r.addEventListener&&r.addEventListener("load",function(){o()}),r.onloadcssloaded=o,o(n),r}}}(this);
+    </script>
     
-    <!-- Fonts loaded with font-display: swap for better performance -->
-    <!-- Preload font files for critical fonts -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59FO_F87jxeN7B.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Fonts optimized: preload WOFF2 + async loading + font-display swap -->
+    <!-- Preload critical font files (WOFF2) pour LCP -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59FO_F87jxeN7B.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- Fonts CSS chargé de manière asynchrone (non-bloquant) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
@@ -562,10 +559,11 @@
         <div class="greenora-hero-bg">
             <!-- Image LCP Ultra-Optimisée - Niveau Expert Performance -->
             <!-- srcset parfaitement calculé: 7 breakpoints pour zero overfetching -->
-            <!-- AVIF prioritaire (f_auto), compression perceptuelle optimale (q_auto:best) -->
+            <!-- AVIF prioritaire (f_auto), compression optimisée mobile (q_auto:good) pour vitesse -->
             <!-- Dimensions explicites pour CLS = 0 -->
+            <!-- will-change pour optimisation GPU -->
             <img src="https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq" 
-                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_320,h_180,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 320w, https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_270,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_640,h_360,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 640w, https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 768w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1024,h_576,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1024w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1440,h_810,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1440w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1920w"
+                 srcset="https://res.cloudinary.com/datq0v1yx/image/upload/w_320,h_180,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 320w, https://res.cloudinary.com/datq0v1yx/image/upload/w_480,h_270,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 480w, https://res.cloudinary.com/datq0v1yx/image/upload/w_640,h_360,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 640w, https://res.cloudinary.com/datq0v1yx/image/upload/w_768,h_432,c_fill,q_auto:good,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 768w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1024,h_576,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1024w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1440,h_810,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1440w, https://res.cloudinary.com/datq0v1yx/image/upload/w_1920,h_1080,c_fill,q_auto:best,f_auto/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq 1920w"
                  alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" 
                  fetchpriority="high" 
                  decoding="async" 
@@ -573,7 +571,7 @@
                  height="1080"
                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1440px) 100vw, 1920px"
                  loading="eager"
-                 style="aspect-ratio: 16/9; max-width: 100%; height: auto; display: block;">
+                 style="aspect-ratio: 16/9; max-width: 100%; height: auto; display: block; will-change: auto; content-visibility: auto;">
         </div>
         <div class="greenora-hero-overlay"></div>
         <div class="greenora-hero-content">
@@ -1942,15 +1940,31 @@
     </footer>
     </main>
 
-    <!-- Vercel Speed Insights - Automatically enabled on Vercel deployments -->
+    <!-- Vercel Speed Insights - Chargé de manière non-bloquante après page interactive -->
     <script>
+        // Charger Speed Insights après que la page soit interactive (non-bloquant)
         if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            (function() {
-                var script = document.createElement('script');
-                script.src = 'https://cdn.vercel-insights.com/v1/script.js';
-                script.defer = true;
-                document.head.appendChild(script);
-            })();
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(function() {
+                    var script = document.createElement('script');
+                    script.src = 'https://cdn.vercel-insights.com/v1/script.js';
+                    script.defer = true;
+                    script.async = true;
+                    script.onerror = function() { /* Silently fail */ };
+                    document.head.appendChild(script);
+                }, { timeout: 5000 });
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        var script = document.createElement('script');
+                        script.src = 'https://cdn.vercel-insights.com/v1/script.js';
+                        script.defer = true;
+                        script.async = true;
+                        script.onerror = function() { /* Silently fail */ };
+                        document.head.appendChild(script);
+                    }, 1000);
+                }, { once: true });
+            }
         }
     </script>
     
@@ -1969,47 +1983,82 @@
         }
     </script>
     
-    <!-- Critical JavaScript - Chargé immédiatement -->
+    <!-- Critical JavaScript - Chargé immédiatement avec defer -->
     <script src="script-critical.js" defer></script>
     
-    <!-- Non-Critical JavaScript - Chargé après rendu initial -->
-    <script src="script-non-critical.js" defer></script>
+    <!-- Non-Critical JavaScript - Chargé après rendu initial avec defer + async -->
+    <script src="script-non-critical.js" defer async></script>
     
-    <!-- Mobile Performance Optimization -->
+    <!-- Main JavaScript - Chargé après page interactive -->
+    <script src="script.js" defer></script>
+    
+    <!-- Mobile Performance Optimization - Ultra Optimisé -->
     <script>
-        // Reduce layout shift on mobile
-        if (window.innerWidth <= 768) {
-            document.addEventListener('DOMContentLoaded', function() {
-                // Reserve space for lazy-loaded images
-                var images = document.querySelectorAll('img[loading="lazy"]');
-                images.forEach(function(img) {
-                    if (img.hasAttribute('width') && img.hasAttribute('height')) {
-                        // Set aspect-ratio directly without reading layout properties
-                        img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
+        // Optimisations critiques pour mobile - Exécuté immédiatement
+        (function() {
+            'use strict';
+            var w = window;
+            var d = document;
+            
+            // Reduce layout shift on mobile - Exécuté immédiatement
+            if (w.innerWidth <= 768) {
+                // Utiliser requestIdleCallback si disponible, sinon setTimeout
+                var runOptimizations = function() {
+                    // Reserve space for lazy-loaded images
+                    var images = d.querySelectorAll('img[loading="lazy"]');
+                    var i = 0;
+                    var processImage = function() {
+                        if (i < images.length) {
+                            var img = images[i];
+                            if (img.hasAttribute('width') && img.hasAttribute('height')) {
+                                img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
+                            }
+                            i++;
+                            if (i < images.length) {
+                                requestAnimationFrame(processImage);
+                            }
+                        }
+                    };
+                    if (images.length > 0) {
+                        requestAnimationFrame(processImage);
                     }
-                });
+                    
+                    // Optimize carousel performance on mobile
+                    var carousel = d.querySelector('.carousel-track-about');
+                    if (carousel) {
+                        carousel.style.willChange = 'transform';
+                        carousel.style.transform = 'translateZ(0)';
+                        carousel.style.backfaceVisibility = 'hidden';
+                        carousel.style.contentVisibility = 'auto';
+                    }
+                };
                 
-                // Optimize carousel performance on mobile
-                var carousel = document.querySelector('.carousel-track-about');
-                if (carousel) {
-                    carousel.style.willChange = 'transform';
-                    carousel.style.transform = 'translateZ(0)';
-                    carousel.style.backfaceVisibility = 'hidden';
+                // Exécuter après DOMContentLoaded ou immédiatement si déjà chargé
+                if (d.readyState === 'loading') {
+                    d.addEventListener('DOMContentLoaded', runOptimizations, { once: true });
+                } else {
+                    runOptimizations();
                 }
-            });
-        }
-        
-        // Lazy load non-critical animations when idle
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(function() {
-                // Preload carousel animation script only when needed
-                var carouselTrack = document.querySelector('.carousel-track-about');
-                if (carouselTrack && !carouselTrack.dataset.animated) {
-                    // Carousel animation will be handled by main script when visible
-                    carouselTrack.dataset.animated = 'true';
-                }
-            }, { timeout: 3000 });
-        }
+            }
+            
+            // Lazy load non-critical animations when idle
+            if ('requestIdleCallback' in w) {
+                requestIdleCallback(function() {
+                    var carouselTrack = d.querySelector('.carousel-track-about');
+                    if (carouselTrack && !carouselTrack.dataset.animated) {
+                        carouselTrack.dataset.animated = 'true';
+                    }
+                }, { timeout: 3000 });
+            } else {
+                // Fallback pour navigateurs sans requestIdleCallback
+                setTimeout(function() {
+                    var carouselTrack = d.querySelector('.carousel-track-about');
+                    if (carouselTrack && !carouselTrack.dataset.animated) {
+                        carouselTrack.dataset.animated = 'true';
+                    }
+                }, 3000);
+            }
+        })();
     </script>
 </body>
 </html>
