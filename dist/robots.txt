@@ -1,0 +1,40 @@
+# robots.txt pour Déneigement Nordique Expert
+# Optimisé pour SEO et indexation maximale
+
+User-agent: *
+Allow: /
+
+# Autoriser toutes les pages importantes
+Allow: /index.html
+Allow: /zones/
+Allow: /services/
+Allow: /etudes-de-cas/
+Allow: /blog-technique/
+
+# Autoriser les ressources statiques
+Allow: /images/
+Allow: /videos/
+Allow: /styles.css
+Allow: /script.js
+
+# Bloquer les fichiers système et temporaires
+Disallow: /node_modules/
+Disallow: /*.md$
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Sitemap
+Sitemap: https://www.deneigementnordique.com/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge (optionnel)
+Crawl-delay: 1
+
+# User-agent spécifique pour Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# User-agent spécifique pour Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0

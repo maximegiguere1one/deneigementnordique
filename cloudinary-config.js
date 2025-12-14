@@ -1,10 +1,13 @@
 // Configuration Cloudinary pour optimisation automatique des images
+// Cloud Name: datq0v1yx
+// Collection: https://collection.cloudinary.com/datq0v1yx/7dad082a8126add27efcb974f43c3209
 // Utilisation: https://res.cloudinary.com/[cloud_name]/image/upload/[transformations]/[image_path]
 
 const CLOUDINARY_CONFIG = {
-    cloudName: 'deneigement-nordique', // À remplacer par votre cloud name Cloudinary
+    cloudName: 'datq0v1yx', // Cloud name Cloudinary
     secure: true,
-    baseURL: 'https://res.cloudinary.com/deneigement-nordique/image/upload',
+    baseURL: 'https://res.cloudinary.com/datq0v1yx/image/upload',
+    collectionURL: 'https://collection.cloudinary.com/datq0v1yx/7dad082a8126add27efcb974f43c3209',
     
     // Transformations par défaut
     defaults: {
