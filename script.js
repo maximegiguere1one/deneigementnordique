@@ -16,17 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe all fade-in elements
+    // Observe all fade-in elements - Use requestAnimationFrame to avoid forced reflows
     const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-        // Si l'élément est déjà dans le viewport, ajouter visible immédiatement
-        const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isInViewport) {
-            el.classList.add('visible');
-        } else {
+    requestAnimationFrame(function() {
+        fadeElements.forEach(el => {
+            // Use IntersectionObserver for all elements to avoid getBoundingClientRect() calls
             observer.observe(el);
-        }
+        });
     });
 
     // Stagger animation for grid items
@@ -129,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
         );
 
         // Vérifie la position courante au cas où l'utilisateur recharge plus bas que le hero
-        if ((window.pageYOffset || document.documentElement.scrollTop) >= heroSection.offsetHeight) {
+        // Cache offsetHeight to avoid forced reflow
+        const heroHeight = heroSection.offsetHeight || heroSection.getBoundingClientRect().height;
+        if ((window.pageYOffset || document.documentElement.scrollTop) >= heroHeight) {
             hideNavbar();
         }
     }
