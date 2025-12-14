@@ -204,7 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+            // Cache clientHeight to avoid forced reflow
+            const sectionHeight = section.dataset.height || section.getBoundingClientRect().height;
+            if (!section.dataset.height) section.dataset.height = sectionHeight;
             if (window.pageYOffset >= sectionTop - 150) {
                 current = section.getAttribute('id');
             }
@@ -338,8 +340,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => {
         // Si l'élément est déjà dans le viewport, ajouter visible immédiatement
-        const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        // Use IntersectionObserver instead of getBoundingClientRect to avoid forced reflow
+        // IntersectionObserver handles viewport detection efficiently
         if (isInViewport) {
             el.classList.add('visible');
         } else {
@@ -434,7 +436,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+            // Cache clientHeight to avoid forced reflow
+            const sectionHeight = section.dataset.height || section.getBoundingClientRect().height;
+            if (!section.dataset.height) section.dataset.height = sectionHeight;
             if (window.pageYOffset >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
