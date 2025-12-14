@@ -5,6 +5,7 @@
 
 const CLOUDINARY_CONFIG = {
     cloudName: 'datq0v1yx', // Cloud name Cloudinary
+    apiKey: '4Xri1dQ2B5PiyRkj_daGgObTdeU', // API Key Cloudinary (pour uploads côté serveur)
     secure: true,
     baseURL: 'https://res.cloudinary.com/datq0v1yx/image/upload',
     collectionURL: 'https://collection.cloudinary.com/datq0v1yx/7dad082a8126add27efcb974f43c3209',

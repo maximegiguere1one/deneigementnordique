@@ -3,6 +3,7 @@
 ## ✅ Configuration Actuelle
 
 - **Cloud Name**: `datq0v1yx`
+- **API Key**: `4Xri1dQ2B5PiyRkj_daGgObTdeU` (pour uploads côté serveur)
 - **Collection**: https://collection.cloudinary.com/datq0v1yx/7dad082a8126add27efcb974f43c3209
 - **Base URL**: `https://res.cloudinary.com/datq0v1yx/image/upload`
 
@@ -52,6 +53,20 @@
 
 ### Méthode 2: Via API (Script automatique)
 
+#### Option A: Script Node.js (Recommandé)
+
+```bash
+# Installer le package Cloudinary
+npm install cloudinary
+
+# Exécuter le script d'upload
+node cloudinary-upload.js
+```
+
+Le script `cloudinary-upload.js` uploadera automatiquement toutes les images avec les bons noms.
+
+#### Option B: Cloudinary CLI
+
 ```bash
 # Installer Cloudinary CLI
 npm install -g cloudinary-cli
@@ -62,6 +77,13 @@ cloudinary config
 # Uploader une image
 cloudinary upload images/equipe\ entrain\ de\ deneiger\(3personenes\).jpeg --public-id equipe-entrain-deneiger
 ```
+
+#### Option C: Via Dashboard (Plus simple)
+
+1. Aller sur https://cloudinary.com/console
+2. Cliquer sur "Media Library"
+3. Cliquer sur "Upload" ou glisser-déposer les images
+4. Renommer les images avec les noms exacts listés ci-dessus
 
 ---
 
