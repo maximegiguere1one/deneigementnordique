@@ -9,6 +9,14 @@ const CLOUDINARY_CONFIG = {
     secure: true,
     baseURL: 'https://res.cloudinary.com/datq0v1yx/image/upload',
     collectionURL: 'https://collection.cloudinary.com/datq0v1yx/7dad082a8126add27efcb974f43c3209',
+    // Images uploadées avec leurs IDs Cloudinary
+    uploadedImages: {
+        'equipe-entrain-deneiger': {
+            publicId: 'equipe_entrain_de_deneiger_3personenes_kn6nvq',
+            version: 'v1765679356',
+            url: 'https://res.cloudinary.com/datq0v1yx/image/upload/v1765679356/equipe_entrain_de_deneiger_3personenes_kn6nvq'
+        }
+    },
     
     // Transformations par défaut
     defaults: {
@@ -26,23 +34,37 @@ const CLOUDINARY_CONFIG = {
         hero: 'w_1920,h_1080,c_fill,q_auto:best,f_auto'
     },
     
-    // Helper function pour générer les URLs
-    getImageURL: function(imagePath, size = 'desktop') {
-        const sizeTransform = this.sizes[size] || this.sizes.desktop;
-        const defaultParams = Object.entries(this.defaults)
-            .map(([key, value]) => `${key}_${value}`)
-            .join(',');
+    // Helper function pour générer les URLs avec version
+    getImageURL: function(imageKey, size = 'desktop') {
+        const image = this.uploadedImages[imageKey];
+        if (!image) {
+            console.warn(`Image ${imageKey} non trouvée dans uploadedImages`);
+            return '';
+        }
         
-        return `${this.baseURL}/${sizeTransform}/${defaultParams}/${imagePath}`;
+        const sizeTransform = this.sizes[size] || this.sizes.desktop;
+        return `${this.baseURL}/${sizeTransform}/${image.version}/${image.publicId}`;
     },
     
-    // Helper pour srcset responsive
-    getSrcSet: function(imagePath) {
+    // Helper pour srcset responsive avec version
+    getSrcSet: function(imageKey) {
+        const image = this.uploadedImages[imageKey];
+        if (!image) {
+            console.warn(`Image ${imageKey} non trouvée dans uploadedImages`);
+            return '';
+        }
+        
         return [
-            `${this.getImageURL(imagePath, 'mobile')} 768w`,
-            `${this.getImageURL(imagePath, 'tablet')} 1280w`,
-            `${this.getImageURL(imagePath, 'desktop')} 1920w`
+            `${this.getImageURL(imageKey, 'mobile')} 768w`,
+            `${this.getImageURL(imageKey, 'tablet')} 1280w`,
+            `${this.getImageURL(imageKey, 'desktop')} 1920w`
         ].join(', ');
+    },
+    
+    // Helper pour obtenir l'URL originale avec version
+    getOriginalURL: function(imageKey) {
+        const image = this.uploadedImages[imageKey];
+        return image ? image.url : '';
     }
 };
 
