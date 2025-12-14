@@ -342,15 +342,9 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     });
     
+    // Use IntersectionObserver for all elements to avoid getBoundingClientRect() forced reflows
     fadeElements.forEach(el => {
-        // Si l'élément est déjà dans le viewport, ajouter visible immédiatement
-        // Use IntersectionObserver instead of getBoundingClientRect to avoid forced reflow
-        // IntersectionObserver handles viewport detection efficiently
-        if (isInViewport) {
-            el.classList.add('visible');
-        } else {
-            fadeObserver.observe(el);
-        }
+        fadeObserver.observe(el);
     });
     
     // Carousel Animation - Greenora Style (Infinite Scroll)
