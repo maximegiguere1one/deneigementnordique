@@ -221,7 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    window.addEventListener('scroll', updateActiveNav);
+    // Use passive listener and throttle for better performance
+    let navUpdateTimeout4;
+    window.addEventListener('scroll', function() {
+        if (navUpdateTimeout4) return;
+        navUpdateTimeout4 = requestAnimationFrame(function() {
+            updateActiveNav();
+            navUpdateTimeout4 = null;
+        });
+    }, { passive: true });
     updateActiveNav();
 
     // Form submission handler - Support both old and new forms
