@@ -52,12 +52,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
-    <!-- Stylesheets -->
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/equipe entrain de deneiger(3personenes).jpeg" as="image" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Stylesheets - Critical CSS loaded immediately -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-greenora.css">
     <link rel="stylesheet" href="styles-nav-premium.css">
     <link rel="stylesheet" href="styles-clean-design.css">
     <link rel="stylesheet" href="styles-greenora-exact.css">
+    
+    <!-- Fonts loaded with font-display: swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Schema.org Structured Data - LocalBusiness -->
@@ -499,7 +506,7 @@
     <!-- Hero Section - Greenora Exact Style -->
     <section class="greenora-hero" id="hero">
         <div class="greenora-hero-bg">
-            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean">
+            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" fetchpriority="high" decoding="async" width="1920" height="1080">
         </div>
         <div class="greenora-hero-overlay"></div>
         <div class="greenora-hero-content">
@@ -600,60 +607,60 @@
                     <div class="carousel-track-about">
                         <!-- Images will be duplicated for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <!-- Duplicate for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <!-- Third set for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                     </div>
                 </div>
@@ -699,7 +706,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement de toits au Lac-Saint-Jean" loading="lazy">
+                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement de toits au Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -739,7 +746,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Déneigement résidentiel Lac-Saint-Jean" loading="lazy">
+                                <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Déneigement résidentiel Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -779,7 +786,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Déneigement commercial Lac-Saint-Jean" loading="lazy">
+                                <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Déneigement commercial Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -819,7 +826,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en soumission.jpeg" alt="Stationnements et accès" loading="lazy">
+                                <img src="images/en soumission.jpeg" alt="Stationnements et accès" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -859,7 +866,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en evaluation.jpeg" alt="Déneigement après tempête" loading="lazy">
+                                <img src="images/en evaluation.jpeg" alt="Déneigement après tempête" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -899,7 +906,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/équipe en preparation.jpeg" alt="Contrats saisonniers" loading="lazy">
+                                <img src="images/équipe en preparation.jpeg" alt="Contrats saisonniers" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -1146,7 +1153,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/avant deneigement.jpeg" alt="Déneigement élégant de toit résidentiel" loading="lazy">
+                                <img src="images/avant deneigement.jpeg" alt="Déneigement élégant de toit résidentiel" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1181,7 +1188,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/apres deneigement.jpeg" alt="Déneigement résidentiel moderne" loading="lazy">
+                                <img src="images/apres deneigement.jpeg" alt="Déneigement résidentiel moderne" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1216,7 +1223,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement commercial durable" loading="lazy">
+                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement commercial durable" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1763,7 +1770,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript - Deferred for better performance -->
+    <script src="script.js" defer></script>
 </body>
 </html>
 

@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Font Display Optimization */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-display: swap;
+}
+
 :root {
     /* 
      * COULEURS DÉNEIGEMENT NORDIQUE EXPERT
