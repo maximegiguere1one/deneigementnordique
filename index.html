@@ -1958,8 +1958,11 @@
         }
     </script>
     
-    <!-- JavaScript - Deferred for better performance -->
-    <script src="script.js" defer></script>
+    <!-- Critical JavaScript - Chargé immédiatement -->
+    <script src="script-critical.js" defer></script>
+    
+    <!-- Non-Critical JavaScript - Chargé après rendu initial -->
+    <script src="script-non-critical.js" defer></script>
     
     <!-- Mobile Performance Optimization -->
     <script>
