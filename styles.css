@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Font Display Optimization */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-display: swap;
+}
+
 :root {
     /* 
      * COULEURS DÉNEIGEMENT NORDIQUE EXPERT
@@ -2277,6 +2288,38 @@ p {
     .btn {
         padding: 0.875rem 1.5rem;
         font-size: 0.95rem;
+    }
+    
+    /* Mobile Performance Optimizations */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .fade-in,
+    .carousel-track-about {
+        will-change: transform;
+    }
+    
+    /* Disable parallax on mobile */
+    .parallax,
+    [data-parallax] {
+        transform: none !important;
+    }
+    
+    /* Optimize carousel for mobile */
+    .carousel-track-about {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+    
+    /* Reduce repaints on mobile */
+    .service-card-wrapper,
+    .work-card,
+    .testimonial-card {
+        transform: translateZ(0);
+        will-change: transform;
     }
 }
 

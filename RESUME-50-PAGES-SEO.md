@@ -124,7 +124,7 @@
     <title>[TITRE OPTIMISÉ SEO] | Déneigement Nordique Expert</title>
     <meta name="description" content="[DESCRIPTION 150-160 caractères avec mots-clés]">
     <meta name="keywords" content="[5-8 mots-clés pertinents]">
-    <link rel="canonical" href="https://www.deneigementnordiqueexpert.com/[CHEMIN]">
+    <link rel="canonical" href="https://www.deneigementnordique.com/[CHEMIN]">
     <!-- Stylesheets identiques -->
 </head>
 <body>

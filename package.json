@@ -18,8 +18,7 @@
   "author": "Déneigement Nordique Expert",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
   }
 }
-

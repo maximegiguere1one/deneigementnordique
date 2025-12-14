@@ -2,7 +2,14 @@
 <html lang="fr-CA" itemscope itemtype="https://schema.org/LocalBusiness">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
+    <!-- Vercel Speed Insights -->
+    <script defer src="https://cdn.vercel-analytics.com/v1/script.js"></script>
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Primary Meta Tags -->
     <title>Déneigement Manuel Lac-Saint-Jean | Toits, Résidentiel & Commercial | Déneigement Nordique Expert</title>
@@ -19,14 +26,14 @@
     <meta name="ICBM" content="48.5500, -72.0000">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.deneigementnordiqueexpert.com/">
+    <link rel="canonical" href="https://www.deneigementnordique.com/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="business.business">
-    <meta property="og:url" content="https://www.deneigementnordiqueexpert.com/">
+    <meta property="og:url" content="https://www.deneigementnordique.com/">
     <meta property="og:title" content="Déneigement Manuel Lac-Saint-Jean | Déneigement Nordique Expert">
     <meta property="og:description" content="Déneigement manuel professionnel au Lac-Saint-Jean. Service de déneigement de toits, résidentiel et commercial à Alma, Roberval, Dolbeau-Mistassini, Saint-Félicien.">
-    <meta property="og:image" content="https://www.deneigementnordiqueexpert.com/og-image.jpg">
+    <meta property="og:image" content="https://www.deneigementnordique.com/og-image.jpg">
     <meta property="og:locale" content="fr_CA">
     <meta property="og:site_name" content="Déneigement Nordique Expert">
     <meta property="business:contact_data:street_address" content="Lac-Saint-Jean">
@@ -37,10 +44,10 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.deneigementnordiqueexpert.com/">
+    <meta name="twitter:url" content="https://www.deneigementnordique.com/">
     <meta name="twitter:title" content="Déneigement Manuel Lac-Saint-Jean | Déneigement Nordique Expert">
     <meta name="twitter:description" content="Déneigement manuel professionnel au Lac-Saint-Jean. Service de déneigement de toits, résidentiel et commercial.">
-    <meta name="twitter:image" content="https://www.deneigementnordiqueexpert.com/twitter-image.jpg">
+    <meta name="twitter:image" content="https://www.deneigementnordique.com/twitter-image.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon vf1.png">
@@ -52,12 +59,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
-    <!-- Stylesheets -->
+    <!-- Critical CSS Inline for Mobile Performance -->
+    <style>
+        /* Critical above-the-fold styles */
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:16px;-webkit-font-smoothing:antialiased}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#1F3A56;overflow-x:hidden}
+        @media(max-width:768px){html{font-size:14px}}
+        .greenora-navbar-transparent{position:fixed;top:0;left:0;right:0;width:100%;background:transparent;z-index:10000}
+        .greenora-hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .greenora-hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+        .greenora-hero-bg img{width:100%;height:100%;object-fit:cover}
+        .greenora-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1}
+        .greenora-hero-content{position:relative;z-index:2;width:100%;max-width:1200px;padding:2rem}
+        @media(max-width:768px){.greenora-hero{min-height:70vh}.greenora-hero-content{padding:1rem}}
+    </style>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/equipe entrain de deneiger(3personenes).jpeg" as="image" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Stylesheets - Critical CSS loaded immediately, non-critical deferred on mobile -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-greenora.css">
     <link rel="stylesheet" href="styles-nav-premium.css">
     <link rel="stylesheet" href="styles-clean-design.css">
     <link rel="stylesheet" href="styles-greenora-exact.css">
+    
+    <!-- Fonts loaded with font-display: swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Schema.org Structured Data - LocalBusiness -->
@@ -65,13 +95,13 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://www.deneigementnordiqueexpert.com/#business",
+      "@id": "https://www.deneigementnordique.com/#business",
       "name": "Déneigement Nordique Expert",
-      "image": "https://www.deneigementnordiqueexpert.com/images/logo%20vf3.svg",
+      "image": "https://www.deneigementnordique.com/images/logo%20vf3.svg",
       "description": "Service de déneigement manuel professionnel au Lac-Saint-Jean. Déneigement de toits, résidentiel et commercial à Alma, Roberval, Dolbeau-Mistassini, Saint-Félicien et toute la région du Saguenay-Lac-Saint-Jean.",
-      "url": "https://www.deneigementnordiqueexpert.com",
+      "url": "https://www.deneigementnordique.com",
       "telephone": "+1-418-812-3456",
-      "email": "info@deneigementnordiqueexpert.com",
+      "email": "info@deneigementnordique.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Lac-Saint-Jean",
@@ -245,7 +275,7 @@
       },
       "availableChannel": {
         "@type": "ServiceChannel",
-        "serviceUrl": "https://www.deneigementnordiqueexpert.com/#contact",
+        "serviceUrl": "https://www.deneigementnordique.com/#contact",
         "servicePhone": "+1-418-812-3456"
       }
     }
@@ -499,7 +529,16 @@
     <!-- Hero Section - Greenora Exact Style -->
     <section class="greenora-hero" id="hero">
         <div class="greenora-hero-bg">
-            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean">
+            <img src="images/equipe entrain de deneiger(3personenes).jpeg" 
+                 alt="Équipe de déneigement manuel professionnel au Lac-Saint-Jean" 
+                 fetchpriority="high" 
+                 decoding="async" 
+                 width="1920" 
+                 height="1080"
+                 sizes="100vw"
+                 srcset="images/equipe entrain de deneiger(3personenes).jpeg 1920w,
+                         images/equipe entrain de deneiger(3personenes).jpeg 1280w,
+                         images/equipe entrain de deneiger(3personenes).jpeg 768w">
         </div>
         <div class="greenora-hero-overlay"></div>
         <div class="greenora-hero-content">
@@ -600,60 +639,60 @@
                     <div class="carousel-track-about">
                         <!-- Images will be duplicated for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <!-- Duplicate for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <!-- Third set for seamless loop -->
                         <div class="carousel-item-about">
-                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy">
+                            <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Équipe professionnelle de déneigement manuel" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy">
+                            <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement manuel sur toit plat" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy">
+                            <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Équipe de déneigement en action" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy">
+                            <img src="images/en soumission.jpeg" alt="Consultation professionnelle" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy">
+                            <img src="images/en evaluation.jpeg" alt="Évaluation du site" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                         <div class="carousel-item-about">
-                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy">
+                            <img src="images/équipe en preparation.jpeg" alt="Équipe en préparation" loading="lazy" decoding="async" width="700" height="760">
                         </div>
                     </div>
                 </div>
@@ -699,7 +738,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement de toits au Lac-Saint-Jean" loading="lazy">
+                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement de toits au Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -739,7 +778,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Déneigement résidentiel Lac-Saint-Jean" loading="lazy">
+                                <img src="images/equipe entrain de deneiger(3personenes).jpeg" alt="Déneigement résidentiel Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -779,7 +818,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Déneigement commercial Lac-Saint-Jean" loading="lazy">
+                                <img src="images/4 deneigeur sur toit plat avec mordure.jpeg" alt="Déneigement commercial Lac-Saint-Jean" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -819,7 +858,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en soumission.jpeg" alt="Stationnements et accès" loading="lazy">
+                                <img src="images/en soumission.jpeg" alt="Stationnements et accès" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -859,7 +898,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/en evaluation.jpeg" alt="Déneigement après tempête" loading="lazy">
+                                <img src="images/en evaluation.jpeg" alt="Déneigement après tempête" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -899,7 +938,7 @@
                     <div class="service-card-wrapper fade-in">
                         <div class="service-card-content">
                             <div class="service-image-container">
-                                <img src="images/équipe en preparation.jpeg" alt="Contrats saisonniers" loading="lazy">
+                                <img src="images/équipe en preparation.jpeg" alt="Contrats saisonniers" loading="lazy" decoding="async" width="700" height="500">
                             </div>
 
                             <div class="service-info-container">
@@ -1146,7 +1185,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/avant deneigement.jpeg" alt="Déneigement élégant de toit résidentiel" loading="lazy">
+                                <img src="images/avant deneigement.jpeg" alt="Déneigement élégant de toit résidentiel" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1181,7 +1220,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/apres deneigement.jpeg" alt="Déneigement résidentiel moderne" loading="lazy">
+                                <img src="images/apres deneigement.jpeg" alt="Déneigement résidentiel moderne" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1216,7 +1255,7 @@
                             </div>
 
                             <div class="work-image-wrapper">
-                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement commercial durable" loading="lazy">
+                                <img src="images/4 deneigeurs sur toit plat .jpeg" alt="Déneigement commercial durable" loading="lazy" decoding="async" width="800" height="600">
                                 <div class="work-overlay">
                                     <div class="work-overlay-button">
                                         <div class="work-overlay-text-wrapper">
@@ -1492,7 +1531,7 @@
                 <!-- Questions Complémentaires -->
                 <div class="faq-item-greenora fade-in">
                     <h3 class="faq-question-greenora">Comment puis-je obtenir un devis pour mon projet ?</h3>
-                    <p class="faq-answer-greenora">Contactez-nous par téléphone au (418) 812-3456, par email à info@deneigementnordiqueexpert.com, ou via notre formulaire en ligne. Nous fournissons une soumission gratuite détaillée dans les 24 heures.</p>
+                    <p class="faq-answer-greenora">Contactez-nous par téléphone au (418) 812-3456, par email à info@deneigementnordique.com, ou via notre formulaire en ligne. Nous fournissons une soumission gratuite détaillée dans les 24 heures.</p>
                 </div>
                 
                 <div class="faq-item-greenora fade-in">
@@ -1527,7 +1566,7 @@
                         </div>
                         <div class="contact-detail-greenora">
                             <div class="contact-label-greenora">Courriel</div>
-                            <a href="mailto:info@deneigementnordiqueexpert.com" class="contact-value-greenora">info@deneigementnordiqueexpert.com</a>
+                            <a href="mailto:info@deneigementnordique.com" class="contact-value-greenora">info@deneigementnordique.com</a>
                         </div>
                     </div>
                     
@@ -1661,7 +1700,7 @@
                             </svg>
                             <div>
                                 <p class="footer-contact-label">Email</p>
-                                <a href="mailto:info@deneigementnordiqueexpert.com" class="footer-contact-value">info@deneigementnordiqueexpert.com</a>
+                                <a href="mailto:info@deneigementnordique.com" class="footer-contact-value">info@deneigementnordique.com</a>
                             </div>
                         </div>
                         <div class="footer-contact-item">
@@ -1763,8 +1802,42 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Vercel Speed Insights - Automatically enabled on Vercel deployments -->
+    <script>
+        if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            (function() {
+                var script = document.createElement('script');
+                script.src = 'https://cdn.vercel-insights.com/v1/script.js';
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        }
+    </script>
+    
+    <!-- JavaScript - Deferred for better performance -->
+    <script src="script.js" defer></script>
+    
+    <!-- Mobile Performance Optimization -->
+    <script>
+        // Reduce layout shift on mobile
+        if (window.innerWidth <= 768) {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Reserve space for lazy-loaded images
+                var images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(function(img) {
+                    if (img.hasAttribute('width') && img.hasAttribute('height')) {
+                        var aspectRatio = img.getAttribute('height') / img.getAttribute('width');
+                        img.style.aspectRatio = img.getAttribute('width') + ' / ' + img.getAttribute('height');
+                    }
+                });
+                
+                // Optimize carousel performance on mobile
+                var carousel = document.querySelector('.carousel-track-about');
+                if (carousel) {
+                    carousel.style.willChange = 'transform';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
-

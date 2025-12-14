@@ -235,8 +235,8 @@ R : Oui, nous sommes entièrement assurés avec une assurance responsabilité ci
 ### COORDONNÉES
 
 **Téléphone :** (418) 812-3456
-**Email :** info@deneigementnordiqueexpert.com
-**Site Web :** https://www.deneigementnordiqueexpert.com
+**Email :** info@deneigementnordique.com
+**Site Web :** https://www.deneigementnordique.com
 
 **Zone de Service :**
 Lac-Saint-Jean, QC

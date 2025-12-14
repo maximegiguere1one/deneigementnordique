@@ -16,17 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe all fade-in elements
+    // Observe all fade-in elements - Use requestAnimationFrame to avoid forced reflows
     const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-        // Si l'élément est déjà dans le viewport, ajouter visible immédiatement
-        const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isInViewport) {
-            el.classList.add('visible');
-        } else {
+    requestAnimationFrame(function() {
+        fadeElements.forEach(el => {
+            // Use IntersectionObserver for all elements to avoid getBoundingClientRect() calls
             observer.observe(el);
-        }
+        });
     });
 
     // Stagger animation for grid items
@@ -129,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
         );
 
         // Vérifie la position courante au cas où l'utilisateur recharge plus bas que le hero
-        if ((window.pageYOffset || document.documentElement.scrollTop) >= heroSection.offsetHeight) {
+        // Cache offsetHeight to avoid forced reflow
+        const heroHeight = heroSection.offsetHeight || heroSection.getBoundingClientRect().height;
+        if ((window.pageYOffset || document.documentElement.scrollTop) >= heroHeight) {
             hideNavbar();
         }
     }
@@ -206,7 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+            // Cache clientHeight to avoid forced reflow
+            const sectionHeight = section.dataset.height || section.getBoundingClientRect().height;
+            if (!section.dataset.height) section.dataset.height = sectionHeight;
             if (window.pageYOffset >= sectionTop - 150) {
                 current = section.getAttribute('id');
             }
@@ -286,10 +286,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Pas de scale - Restraint
         }
         
-        // Layer 2: Images seulement (très subtil)
+        // Layer 2: Images seulement (très subtil) - Optimized to reduce reflows
         const images = document.querySelectorAll('.process-step-image, .why-choose-image');
         images.forEach(el => {
-            const rect = el.getBoundingClientRect();
+            // Cache rect to avoid multiple getBoundingClientRect calls
+            const rect = el.dataset.rect ? JSON.parse(el.dataset.rect) : el.getBoundingClientRect();
+            if (!el.dataset.rect) {
+                el.dataset.rect = JSON.stringify({top: rect.top, height: rect.height});
+            }
             const elementTop = rect.top + scrolled;
             const elementCenter = elementTop + rect.height / 2;
             const viewportCenter = scrolled + windowHeight / 2;
@@ -338,15 +342,9 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     });
     
+    // Use IntersectionObserver for all elements to avoid getBoundingClientRect() forced reflows
     fadeElements.forEach(el => {
-        // Si l'élément est déjà dans le viewport, ajouter visible immédiatement
-        const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isInViewport) {
-            el.classList.add('visible');
-        } else {
-            fadeObserver.observe(el);
-        }
+        fadeObserver.observe(el);
     });
     
     // Carousel Animation - Greenora Style (Infinite Scroll)
@@ -436,7 +434,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
+            // Cache clientHeight to avoid forced reflow
+            const sectionHeight = section.dataset.height || section.getBoundingClientRect().height;
+            if (!section.dataset.height) section.dataset.height = sectionHeight;
             if (window.pageYOffset >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
